@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ShopBanGiayModelStoreContainer" CdmEntityContainer="ShopBanGiayEntities1">
+    <EntitySetMapping Name="Chi_tiet_don_hang">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.Chi_tiet_don_hang">
+        <MappingFragment StoreEntitySet="Chi_tiet_don_hang">
+          <ScalarProperty Name="ID_Donhang" ColumnName="ID_Donhang" />
+          <ScalarProperty Name="ID_Sanpham" ColumnName="ID_Sanpham" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Danh_muc">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.Danh_muc">
+        <MappingFragment StoreEntitySet="Danh_muc">
+          <ScalarProperty Name="ID_Danhmuc" ColumnName="ID_Danhmuc" />
+          <ScalarProperty Name="ID_Nhom_Danh_Muc" ColumnName="ID_Nhom_Danh_Muc" />
+          <ScalarProperty Name="Ten_Danhmuc" ColumnName="Ten_Danhmuc" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Don_hang">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.Don_hang">
+        <MappingFragment StoreEntitySet="Don_hang">
+          <ScalarProperty Name="ID_Donhang" ColumnName="ID_Donhang" />
+          <ScalarProperty Name="Ngay_Dat_hang" ColumnName="Ngay_Dat_hang" />
+          <ScalarProperty Name="ID_Nguoidung" ColumnName="ID_Nguoidung" />
+          <ScalarProperty Name="Ten_Nguoidung" ColumnName="Ten_Nguoidung" />
+          <ScalarProperty Name="Email_Nguoidung" ColumnName="Email_Nguoidung" />
+          <ScalarProperty Name="Mota" ColumnName="Mota" />
+          <ScalarProperty Name="Tongtien" ColumnName="Tongtien" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hinh_anh">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.Hinh_anh">
+        <MappingFragment StoreEntitySet="Hinh_anh">
+          <ScalarProperty Name="ID_Hinhanh" ColumnName="ID_Hinhanh" />
+          <ScalarProperty Name="ID_Sanpham" ColumnName="ID_Sanpham" />
+          <ScalarProperty Name="duongdan" ColumnName="duongdan" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Khuyen_mai">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.Khuyen_mai">
+        <MappingFragment StoreEntitySet="Khuyen_mai">
+          <ScalarProperty Name="ID_Khuyenmai" ColumnName="ID_Khuyenmai" />
+          <ScalarProperty Name="Ten_giamgia" ColumnName="Ten_giamgia" />
+          <ScalarProperty Name="Ngay_batdau" ColumnName="Ngay_batdau" />
+          <ScalarProperty Name="Ngay_ketthuc" ColumnName="Ngay_ketthuc" />
+          <ScalarProperty Name="Mucgiamgia" ColumnName="Mucgiamgia" />
+          <ScalarProperty Name="trangthai" ColumnName="trangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nguoi_dung">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.Nguoi_dung">
+        <MappingFragment StoreEntitySet="Nguoi_dung">
+          <ScalarProperty Name="ID_Nguoidung" ColumnName="ID_Nguoidung" />
+          <ScalarProperty Name="Ten_Nguoidung" ColumnName="Ten_Nguoidung" />
+          <ScalarProperty Name="Ngay_sinh" ColumnName="Ngay_sinh" />
+          <ScalarProperty Name="ID_vaitro" ColumnName="ID_vaitro" />
+          <ScalarProperty Name="Hinh_anh" ColumnName="Hinh_anh" />
+          <ScalarProperty Name="Dia_chi" ColumnName="Dia_chi" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="So_DT" ColumnName="So_DT" />
+          <ScalarProperty Name="Tai_Khoan" ColumnName="Tai_Khoan" />
+          <ScalarProperty Name="Mat_Khau" ColumnName="Mat_Khau" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nhom_Danh_Muc">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.Nhom_Danh_Muc">
+        <MappingFragment StoreEntitySet="Nhom_Danh_Muc">
+          <ScalarProperty Name="ID_Nhom_Danh_muc" ColumnName="ID_Nhom_Danh_muc" />
+          <ScalarProperty Name="Ten_Nhom_Danh_muc" ColumnName="Ten_Nhom_Danh_muc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="San_pham">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.San_pham">
+        <MappingFragment StoreEntitySet="San_pham">
+          <ScalarProperty Name="ID_Sanpham" ColumnName="ID_Sanpham" />
+          <ScalarProperty Name="Tensanpham" ColumnName="Tensanpham" />
+          <ScalarProperty Name="ID_Khuyenmai" ColumnName="ID_Khuyenmai" />
+          <ScalarProperty Name="ID_Danh_Muc" ColumnName="ID_Danh_Muc" />
+          <ScalarProperty Name="ID_hinh_anh" ColumnName="ID_hinh_anh" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Soluong" ColumnName="Soluong" />
+          <ScalarProperty Name="Mota" ColumnName="Mota" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="Ngaycapnhat" ColumnName="Ngaycapnhat" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slides">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.Slide">
+        <MappingFragment StoreEntitySet="Slide">
+          <ScalarProperty Name="ID_Slide" ColumnName="ID_Slide" />
+          <ScalarProperty Name="Hinh_anh" ColumnName="Hinh_anh" />
+          <ScalarProperty Name="Tieu_de" ColumnName="Tieu_de" />
+          <ScalarProperty Name="Noi_dung" ColumnName="Noi_dung" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Thanh_toan">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.Thanh_toan">
+        <MappingFragment StoreEntitySet="Thanh_toan">
+          <ScalarProperty Name="ID_ThanhToan" ColumnName="ID_ThanhToan" />
+          <ScalarProperty Name="ID_Donhang" ColumnName="ID_Donhang" />
+          <ScalarProperty Name="ID_Nguoidung" ColumnName="ID_Nguoidung" />
+          <ScalarProperty Name="Ngay_thanh_toan" ColumnName="Ngay_thanh_toan" />
+          <ScalarProperty Name="So_tien" ColumnName="So_tien" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vai_tro">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.Vai_tro">
+        <MappingFragment StoreEntitySet="Vai_tro">
+          <ScalarProperty Name="ID_Vai_tro" ColumnName="ID_Vai_tro" />
+          <ScalarProperty Name="Ten_vai_tro" ColumnName="Ten_vai_tro" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Van_chuyen">
+      <EntityTypeMapping TypeName="ShopBanGiayModel.Van_chuyen">
+        <MappingFragment StoreEntitySet="Van_chuyen">
+          <ScalarProperty Name="ID_van_chuyen" ColumnName="ID_van_chuyen" />
+          <ScalarProperty Name="ID_don_hang" ColumnName="ID_don_hang" />
+          <ScalarProperty Name="Ngay_giao" ColumnName="Ngay_giao" />
+          <ScalarProperty Name="Ngay_Nhan" ColumnName="Ngay_Nhan" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ShopBanGiayModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ShopBanGiayModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ShopBanGiayModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ShopBanGiayModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ShopBanGiayModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ShopBanGiayModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ShopBanGiayModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ShopBanGiayModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ShopBanGiayModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>

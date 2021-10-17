@@ -1,0 +1,86 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+
+        .Login-form {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 2px dashed pink;
+            text-align: center;
+        }
+
+        .input-box {
+            padding-top: 15px;
+        }
+
+        .btn-box {
+            padding-top: 15px;
+            padding-bottom: 10px;
+            color: black;
+        }
+
+
+        h1 {
+            color: deeppink;
+        }
+    </style>
+    <script>
+        function CheckData() {
+            var user = document.getElementById("username").nodeValue;
+            if (user == "") {
+                document.getElementById("error_us").innerHTML = "Input username";
+                return false;
+            }
+            else {
+                document.getElementById("error_us").innerHTML = "";
+
+            }
+            var pass = document.getElementById("password").nodeValue;
+            if (pass == "") {
+                document.getElementById("error_pw").innerHTML = "Input password";
+                return false;
+            }
+            else {
+                document.getElementById("error_pw").innerHTML = "";
+
+            }
+            return true;
+
+        }
+    </script>
+</head>
+<br />
+<body>
+    <div class="Login-form">
+        <form action="" method="post" onsubmit="return CheckData();">
+            <h1> Login Customer</h1>
+            <div class="input-box">
+                <i></i>
+                <input type="text" name="username" id="username" placeholder="Input username" />
+                <div class="text-warning"><label id="error_us"></label></div>
+            </div>
+            <div class="input-box">
+                <i></i>
+                <input type="password" name="password" id="password" placeholder="Input password" />
+                <div class="text-warning"><label id="error_pw"></label></div>
+            </div>
+            <div class="btn-box">
+                <button type="submit" class="btn btn-default"> Login </button> ||
+                @Html.ActionLink("Register", "Register", "Login")
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+

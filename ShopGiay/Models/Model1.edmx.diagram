@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="722aaefaf6f34add96f63943a6c0631a" Name="Diagram1">
+        <EntityTypeShape EntityType="ShopBanGiayModel.Chi_tiet_don_hang" Width="1.5" PointX="7.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopBanGiayModel.Danh_muc" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopBanGiayModel.Don_hang" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopBanGiayModel.Hinh_anh" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopBanGiayModel.Khuyen_mai" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopBanGiayModel.Nguoi_dung" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopBanGiayModel.Nhom_Danh_Muc" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopBanGiayModel.San_pham" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopBanGiayModel.Slide" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopBanGiayModel.sysdiagram" Width="1.5" PointX="7.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopBanGiayModel.Thanh_toan" Width="1.5" PointX="7.5" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopBanGiayModel.Vai_tro" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ShopBanGiayModel.Van_chuyen" Width="1.5" PointX="7.5" PointY="16.25" IsExpanded="true" />
+        <AssociationConnector Association="ShopBanGiayModel.FK_Chi_tiet_don_hang_Don_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopBanGiayModel.FK_Chi_tiet_don_hang_San_pham" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopBanGiayModel.FK_Danh_muc_Nhom_Danh_Muc" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopBanGiayModel.FK_San_pham_Danh_muc" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopBanGiayModel.FK_Don_hang_Nguoi_dung" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopBanGiayModel.FK_Thanh_toan_Don_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopBanGiayModel.FK_Van_chuyen_Don_hang" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopBanGiayModel.FK_San_pham_Hinh_anh" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopBanGiayModel.FK_San_pham_Khuyen_mai" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopBanGiayModel.FK_Nguoi_dung_Vai_tro" ManuallyRouted="false" />
+        <AssociationConnector Association="ShopBanGiayModel.FK_Thanh_toan_Nguoi_dung" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
