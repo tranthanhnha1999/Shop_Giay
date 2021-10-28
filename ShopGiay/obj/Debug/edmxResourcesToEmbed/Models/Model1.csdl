@@ -45,10 +45,13 @@
       <PropertyRef Name="ID_Hinhanh" />
     </Key>
     <Property Name="ID_Hinhanh" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ID_Sanpham" Type="Int32" Nullable="false" />
-    <Property Name="duongdan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ID_San_Pham" Type="Int32" Nullable="false" />
+    <Property Name="Hinhchinh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Hinh1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Hinh2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Hinh3" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Trangthai" Type="Int32" />
-    <NavigationProperty Name="San_pham" Relationship="Self.FK_San_pham_Hinh_anh" FromRole="Hinh_anh" ToRole="San_pham" />
+    <NavigationProperty Name="San_pham" Relationship="Self.FK_Hinh_anh_San_pham" FromRole="Hinh_anh" ToRole="San_pham" />
   </EntityType>
   <EntityType Name="Khuyen_mai">
     <Key>
@@ -60,7 +63,22 @@
     <Property Name="Ngay_ketthuc" Type="DateTime" Precision="0" />
     <Property Name="Mucgiamgia" Type="Int32" />
     <Property Name="trangthai" Type="Int32" />
-    <NavigationProperty Name="San_pham" Relationship="Self.FK_San_pham_Khuyen_mai" FromRole="Khuyen_mai" ToRole="San_pham" />
+    <NavigationProperty Name="San_pham" Relationship="Self.FK_San_pham_Khuyen_mai1" FromRole="Khuyen_mai" ToRole="San_pham" />
+  </EntityType>
+  <EntityType Name="Kich_thuoc">
+    <Key>
+      <PropertyRef Name="ID_Size" />
+    </Key>
+    <Property Name="ID_Size" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_san_pham" Type="Int32" Nullable="false" />
+    <Property Name="Size_36" Type="Int32" />
+    <Property Name="Size_37" Type="Int32" />
+    <Property Name="Size_38" Type="Int32" />
+    <Property Name="Size_39" Type="Int32" />
+    <Property Name="Size_40" Type="Int32" />
+    <Property Name="Size_41" Type="Int32" />
+    <Property Name="Size_42" Type="Int32" />
+    <NavigationProperty Name="San_pham" Relationship="Self.FK_Kich_thuoc_San_pham" FromRole="Kich_thuoc" ToRole="San_pham" />
   </EntityType>
   <EntityType Name="Nguoi_dung">
     <Key>
@@ -97,17 +115,15 @@
     <Property Name="Tensanpham" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="ID_Khuyenmai" Type="Int32" Nullable="false" />
     <Property Name="ID_Danh_Muc" Type="Int32" Nullable="false" />
-    <Property Name="ID_hinh_anh" Type="Int32" Nullable="false" />
-    <Property Name="Size" Type="Int32" />
-    <Property Name="Soluong" Type="Int32" />
     <Property Name="Mota" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Gia" Type="Decimal" Precision="18" Scale="0" />
     <Property Name="Ngaycapnhat" Type="DateTime" Precision="0" />
     <Property Name="Trangthai" Type="Int32" />
     <NavigationProperty Name="Chi_tiet_don_hang" Relationship="Self.FK_Chi_tiet_don_hang_San_pham" FromRole="San_pham" ToRole="Chi_tiet_don_hang" />
     <NavigationProperty Name="Danh_muc" Relationship="Self.FK_San_pham_Danh_muc" FromRole="San_pham" ToRole="Danh_muc" />
-    <NavigationProperty Name="Hinh_anh" Relationship="Self.FK_San_pham_Hinh_anh" FromRole="San_pham" ToRole="Hinh_anh" />
-    <NavigationProperty Name="Khuyen_mai" Relationship="Self.FK_San_pham_Khuyen_mai" FromRole="San_pham" ToRole="Khuyen_mai" />
+    <NavigationProperty Name="Hinh_anh" Relationship="Self.FK_Hinh_anh_San_pham" FromRole="San_pham" ToRole="Hinh_anh" />
+    <NavigationProperty Name="Khuyen_mai" Relationship="Self.FK_San_pham_Khuyen_mai1" FromRole="San_pham" ToRole="Khuyen_mai" />
+    <NavigationProperty Name="Kich_thuoc" Relationship="Self.FK_Kich_thuoc_San_pham" FromRole="San_pham" ToRole="Kich_thuoc" />
   </EntityType>
   <EntityType Name="Slide">
     <Key>
@@ -133,7 +149,7 @@
     <Key>
       <PropertyRef Name="ID_ThanhToan" />
     </Key>
-    <Property Name="ID_ThanhToan" Type="Int32" Nullable="false" />
+    <Property Name="ID_ThanhToan" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="ID_Donhang" Type="Int32" Nullable="false" />
     <Property Name="ID_Nguoidung" Type="Int32" Nullable="false" />
     <Property Name="Ngay_thanh_toan" Type="DateTime" Precision="0" />
@@ -246,19 +262,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_San_pham_Hinh_anh">
-    <End Role="Hinh_anh" Type="Self.Hinh_anh" Multiplicity="1" />
-    <End Role="San_pham" Type="Self.San_pham" Multiplicity="*" />
+  <Association Name="FK_Hinh_anh_San_pham">
+    <End Role="San_pham" Type="Self.San_pham" Multiplicity="1" />
+    <End Role="Hinh_anh" Type="Self.Hinh_anh" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Hinh_anh">
-        <PropertyRef Name="ID_Hinhanh" />
+      <Principal Role="San_pham">
+        <PropertyRef Name="ID_Sanpham" />
       </Principal>
-      <Dependent Role="San_pham">
-        <PropertyRef Name="ID_hinh_anh" />
+      <Dependent Role="Hinh_anh">
+        <PropertyRef Name="ID_San_Pham" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_San_pham_Khuyen_mai">
+  <Association Name="FK_San_pham_Khuyen_mai1">
     <End Role="Khuyen_mai" Type="Self.Khuyen_mai" Multiplicity="1" />
     <End Role="San_pham" Type="Self.San_pham" Multiplicity="*" />
     <ReferentialConstraint>
@@ -267,6 +283,18 @@
       </Principal>
       <Dependent Role="San_pham">
         <PropertyRef Name="ID_Khuyenmai" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kich_thuoc_San_pham">
+    <End Role="San_pham" Type="Self.San_pham" Multiplicity="1" />
+    <End Role="Kich_thuoc" Type="Self.Kich_thuoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="San_pham">
+        <PropertyRef Name="ID_Sanpham" />
+      </Principal>
+      <Dependent Role="Kich_thuoc">
+        <PropertyRef Name="ID_san_pham" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -294,12 +322,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ShopBanGiayEntities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="ShopBanGiayEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Chi_tiet_don_hang" EntityType="Self.Chi_tiet_don_hang" />
     <EntitySet Name="Danh_muc" EntityType="Self.Danh_muc" />
     <EntitySet Name="Don_hang" EntityType="Self.Don_hang" />
     <EntitySet Name="Hinh_anh" EntityType="Self.Hinh_anh" />
     <EntitySet Name="Khuyen_mai" EntityType="Self.Khuyen_mai" />
+    <EntitySet Name="Kich_thuoc" EntityType="Self.Kich_thuoc" />
     <EntitySet Name="Nguoi_dung" EntityType="Self.Nguoi_dung" />
     <EntitySet Name="Nhom_Danh_Muc" EntityType="Self.Nhom_Danh_Muc" />
     <EntitySet Name="San_pham" EntityType="Self.San_pham" />
@@ -336,13 +365,17 @@
       <End Role="Don_hang" EntitySet="Don_hang" />
       <End Role="Van_chuyen" EntitySet="Van_chuyen" />
     </AssociationSet>
-    <AssociationSet Name="FK_San_pham_Hinh_anh" Association="Self.FK_San_pham_Hinh_anh">
-      <End Role="Hinh_anh" EntitySet="Hinh_anh" />
+    <AssociationSet Name="FK_Hinh_anh_San_pham" Association="Self.FK_Hinh_anh_San_pham">
       <End Role="San_pham" EntitySet="San_pham" />
+      <End Role="Hinh_anh" EntitySet="Hinh_anh" />
     </AssociationSet>
-    <AssociationSet Name="FK_San_pham_Khuyen_mai" Association="Self.FK_San_pham_Khuyen_mai">
+    <AssociationSet Name="FK_San_pham_Khuyen_mai1" Association="Self.FK_San_pham_Khuyen_mai1">
       <End Role="Khuyen_mai" EntitySet="Khuyen_mai" />
       <End Role="San_pham" EntitySet="San_pham" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kich_thuoc_San_pham" Association="Self.FK_Kich_thuoc_San_pham">
+      <End Role="San_pham" EntitySet="San_pham" />
+      <End Role="Kich_thuoc" EntitySet="Kich_thuoc" />
     </AssociationSet>
     <AssociationSet Name="FK_Nguoi_dung_Vai_tro" Association="Self.FK_Nguoi_dung_Vai_tro">
       <End Role="Vai_tro" EntitySet="Vai_tro" />
@@ -352,46 +385,5 @@
       <End Role="Nguoi_dung" EntitySet="Nguoi_dung" />
       <End Role="Thanh_toan" EntitySet="Thanh_toan" />
     </AssociationSet>
-    <FunctionImport Name="sp_alterdiagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="version" Mode="In" Type="Int32" />
-      <Parameter Name="definition" Mode="In" Type="Binary" />
-    </FunctionImport>
-    <FunctionImport Name="sp_creatediagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="version" Mode="In" Type="Int32" />
-      <Parameter Name="definition" Mode="In" Type="Binary" />
-    </FunctionImport>
-    <FunctionImport Name="sp_dropdiagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ShopBanGiayModel.sp_helpdiagramdefinition_Result)">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ShopBanGiayModel.sp_helpdiagrams_Result)">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="sp_renamediagram">
-      <Parameter Name="diagramname" Mode="In" Type="String" />
-      <Parameter Name="owner_id" Mode="In" Type="Int32" />
-      <Parameter Name="new_diagramname" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="sp_upgraddiagrams" />
   </EntityContainer>
-  <ComplexType Name="sp_helpdiagramdefinition_Result">
-    <Property Type="Int32" Name="version" Nullable="true" />
-    <Property Type="Binary" Name="definition" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="sp_helpdiagrams_Result">
-    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-    <Property Type="Int32" Name="ID" Nullable="false" />
-    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-    <Property Type="Int32" Name="OwnerID" Nullable="false" />
-  </ComplexType>
 </Schema>

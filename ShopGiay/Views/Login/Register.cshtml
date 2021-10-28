@@ -1,0 +1,142 @@
+﻿@model ShopGiay.Models.Nguoi_dung
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .Register-Form {
+            padding:2px;
+            width: 100%;
+            max-width: 700px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 5px inset pink;
+            border-radius:50px;
+            text-align: center;
+            background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .input-container {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .icon {
+            padding: 10px;
+            background: deeppink;
+            color: white;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+        }
+
+            .input-field:focus {
+                border: 2px solid dodgerblue;
+            }
+
+        /* Set a style for the submit button */
+        .btn {
+            background-color: deeppink;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            opacity: 0.9;
+        }
+
+            .btn:hover {
+                opacity: 1;
+            }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="Register-Form">
+            <form action="/action_page.php" style="max-width:500px;margin:auto;text-align:center">
+                <h2 style="color:deeppink">Đăng Ký</h2>
+                <div class="input-container">
+                    <i class="fa fa-user icon"></i>
+                    @Html.EditorFor(model => model.Ten_Nguoidung, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.Ten_Nguoidung, "", new { @class = "text-danger" })
+                </div>
+                <div class="input-container">
+                    <i class="fa fa-birthday-cake icon "></i>
+                    @Html.EditorFor(model => model.Ngay_sinh, new { htmlAttributes = new { @class = "input-field", Type = "date" } })
+                    @Html.ValidationMessageFor(model => model.Ngay_sinh, "", new { @class = "text-danger" })
+                </div>
+                <div class="input-container">
+                    <i class="fa fa-birthday-cake icon "></i>
+                    @Html.EditorFor(model => model.Ngay_sinh, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.ID_vaitro, "", new { @class = "text-danger" })
+                </div>
+                <div class="input-container">
+                    <i class="fa fa-image icon"></i>
+                    @Html.EditorFor(model => model.Hinh_anh, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.Hinh_anh, "", new { @class = "text-danger" })
+                </div>
+                <div class="input-container">
+                    <i class="fa fa-address-book icon"></i>
+                    @Html.EditorFor(model => model.Dia_chi, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.Dia_chi, "", new { @class = "text-danger" })
+                </div>
+                <div class="input-container">
+                    <i class="fa fa-envelope icon"></i>
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+                <div class="input-container">
+                    <i class="fa fa-phone-square icon"></i>
+                    @Html.EditorFor(model => model.So_DT, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.So_DT, "", new { @class = "text-danger" })
+                </div>
+                <div class="input-container">
+                    <i class="fa fa-user icon"></i>
+                    @Html.EditorFor(model => model.Tai_Khoan, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.Tai_Khoan, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="input-container">
+                    <i class="fa fa-key icon"></i>
+                    @Html.EditorFor(model => model.Mat_Khau, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.Mat_Khau, "", new { @class = "text-danger" })
+                </div>
+                <div class="input-container">
+                    <i class="fa fa-key icon"></i>
+                    @Html.EditorFor(model => model.Mat_Khau, new { htmlAttributes = new { @class = "input-field" } })
+                    @Html.ValidationMessageFor(model => model.Mat_Khau, "", new { @class = "text-danger" })
+                </div>
+
+
+                <button type="submit" class="btn">Đăng ký<i class="fa fa-user-plus icon"></i></button>
+            </form>
+        </div>
+    }
+</body>
+</html>
+

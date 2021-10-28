@@ -18,15 +18,14 @@ namespace ShopGiay.Models
         public San_pham()
         {
             this.Chi_tiet_don_hang = new HashSet<Chi_tiet_don_hang>();
+            this.Hinh_anh = new HashSet<Hinh_anh>();
+            this.Kich_thuoc = new HashSet<Kich_thuoc>();
         }
     
         public int ID_Sanpham { get; set; }
         public string Tensanpham { get; set; }
         public int ID_Khuyenmai { get; set; }
         public int ID_Danh_Muc { get; set; }
-        public int ID_hinh_anh { get; set; }
-        public Nullable<int> Size { get; set; }
-        public Nullable<int> Soluong { get; set; }
         public string Mota { get; set; }
         public Nullable<decimal> Gia { get; set; }
         public Nullable<System.DateTime> Ngaycapnhat { get; set; }
@@ -35,7 +34,10 @@ namespace ShopGiay.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Chi_tiet_don_hang> Chi_tiet_don_hang { get; set; }
         public virtual Danh_muc Danh_muc { get; set; }
-        public virtual Hinh_anh Hinh_anh { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Hinh_anh> Hinh_anh { get; set; }
         public virtual Khuyen_mai Khuyen_mai { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Kich_thuoc> Kich_thuoc { get; set; }
     }
 }

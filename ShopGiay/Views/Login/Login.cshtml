@@ -1,11 +1,14 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Login</title>
     <style>
 
@@ -14,8 +17,10 @@
             max-width: 400px;
             margin: 20px auto;
             background-color: #ffffff;
-            border: 2px dashed pink;
+            border: 5px inset pink;
+            border-radius: 30px;
             text-align: center;
+            background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
         }
 
         .input-box {
@@ -27,8 +32,18 @@
             padding-bottom: 10px;
             color: black;
         }
-
-
+        .icon {
+            padding: 10px;
+            background: pink;
+            color: white;
+            min-width: 50px;
+            text-align: center;
+        }
+        .input-field {
+            width: 50%;
+            padding: 8px;
+            outline: none;
+        }
         h1 {
             color: deeppink;
         }
@@ -37,7 +52,7 @@
         function CheckData() {
             var user = document.getElementById("username").nodeValue;
             if (user == "") {
-                document.getElementById("error_us").innerHTML = "Input username";
+                document.getElementById("error_us").innerHTML = "";
                 return false;
             }
             else {
@@ -46,7 +61,7 @@
             }
             var pass = document.getElementById("password").nodeValue;
             if (pass == "") {
-                document.getElementById("error_pw").innerHTML = "Input password";
+                document.getElementById("error_pw").innerHTML = "";
                 return false;
             }
             else {
@@ -60,27 +75,29 @@
 </head>
 <br />
 <body>
-    <div class="Login-form">
-        <form action="" method="post" onsubmit="return CheckData();">
-            <h1> Login Customer</h1>
+    <div class="Login-form" >
+        <form action="/action_page.php" method="post" onsubmit="return CheckData();">
+            <h1> Đăng Nhập</h1>
             <div class="input-box">
-                <i></i>
-                <input type="text" name="username" id="username" placeholder="Input username" />
+                <i class="fa fa-user icon"></i>
+                <input class="input-field" type="text" name="username" id="username" placeholder="Nhập tài khoản" />
                 <div class="text-warning"><label id="error_us"></label></div>
             </div>
             <div class="input-box">
-                <i></i>
-                <input type="password" name="password" id="password" placeholder="Input password" />
+                <i class="fa fa-key icon"></i>
+                <input class="input-field" type="password" name="password" id="password" placeholder="Nhập mật khẩu"  />
                 <div class="text-warning"><label id="error_pw"></label></div>
             </div>
             <div class="btn-box">
-                <button type="submit" class="btn btn-default"> Login </button> ||
-                @Html.ActionLink("Register", "Register", "Login")
+                <button type="submit" class="btn btn-outline-danger" style="color:deeppink">Đăng nhập </i></button>
+                
+            </div>
+            <div class="btn-box">
+                <a href="@Url.Action("Register","Login")" style="color:deeppink">Quên mật khẩu ?</a> ||
+                <a href="@Url.Action("Register","Login")" style="color:deeppink">Đăng Ký</a>
             </div>
         </form>
     </div>
 </body>
 </html>
-
-
 
