@@ -20,8 +20,8 @@ namespace ShopGiay.Models
             this.San_pham = new HashSet<San_pham>();
         }
     
-        public int ID_Danhmuc { get; set; }
-        public int ID_Nhom_Danh_Muc { get; set; }
+        public string ID_Danhmuc { get; set; }
+        public string ID_Nhom_Danh_Muc { get; set; }
         public string Ten_Danhmuc { get; set; }
         public Nullable<int> Trangthai { get; set; }
     

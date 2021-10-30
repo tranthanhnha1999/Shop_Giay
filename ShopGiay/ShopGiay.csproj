@@ -149,6 +149,7 @@
     <Compile Include="Models\Don_hang.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Encode.cs" />
     <Compile Include="Models\Hinh_anh.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

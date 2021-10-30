@@ -14,8 +14,8 @@
     <Key>
       <PropertyRef Name="ID_Danhmuc" />
     </Key>
-    <Property Name="ID_Danhmuc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ID_Nhom_Danh_Muc" Type="int" Nullable="false" />
+    <Property Name="ID_Danhmuc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Nhom_Danh_Muc" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Ten_Danhmuc" Type="nvarchar" MaxLength="250" />
     <Property Name="Trangthai" Type="int" />
   </EntityType>
@@ -89,7 +89,7 @@
     <Key>
       <PropertyRef Name="ID_Nhom_Danh_muc" />
     </Key>
-    <Property Name="ID_Nhom_Danh_muc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Nhom_Danh_muc" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Ten_Nhom_Danh_muc" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="San_pham">
@@ -99,7 +99,7 @@
     <Property Name="ID_Sanpham" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Tensanpham" Type="nvarchar" MaxLength="250" />
     <Property Name="ID_Khuyenmai" Type="int" Nullable="false" />
-    <Property Name="ID_Danh_Muc" Type="int" Nullable="false" />
+    <Property Name="ID_Danh_Muc" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Mota" Type="nvarchar" MaxLength="250" />
     <Property Name="Gia" Type="numeric" Precision="18" Scale="0" />
     <Property Name="Ngaycapnhat" Type="smalldatetime" />

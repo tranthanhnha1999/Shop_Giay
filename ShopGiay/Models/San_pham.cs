@@ -25,7 +25,7 @@ namespace ShopGiay.Models
         public int ID_Sanpham { get; set; }
         public string Tensanpham { get; set; }
         public int ID_Khuyenmai { get; set; }
-        public int ID_Danh_Muc { get; set; }
+        public string ID_Danh_Muc { get; set; }
         public string Mota { get; set; }
         public Nullable<decimal> Gia { get; set; }
         public Nullable<System.DateTime> Ngaycapnhat { get; set; }

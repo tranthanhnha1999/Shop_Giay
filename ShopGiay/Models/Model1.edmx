@@ -19,8 +19,8 @@
           <Key>
             <PropertyRef Name="ID_Danhmuc" />
           </Key>
-          <Property Name="ID_Danhmuc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_Nhom_Danh_Muc" Type="int" Nullable="false" />
+          <Property Name="ID_Danhmuc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Nhom_Danh_Muc" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Ten_Danhmuc" Type="nvarchar" MaxLength="250" />
           <Property Name="Trangthai" Type="int" />
         </EntityType>
@@ -94,7 +94,7 @@
           <Key>
             <PropertyRef Name="ID_Nhom_Danh_muc" />
           </Key>
-          <Property Name="ID_Nhom_Danh_muc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Nhom_Danh_muc" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Ten_Nhom_Danh_muc" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="San_pham">
@@ -104,7 +104,7 @@
           <Property Name="ID_Sanpham" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Tensanpham" Type="nvarchar" MaxLength="250" />
           <Property Name="ID_Khuyenmai" Type="int" Nullable="false" />
-          <Property Name="ID_Danh_Muc" Type="int" Nullable="false" />
+          <Property Name="ID_Danh_Muc" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Mota" Type="nvarchar" MaxLength="250" />
           <Property Name="Gia" Type="numeric" Precision="18" Scale="0" />
           <Property Name="Ngaycapnhat" Type="smalldatetime" />
@@ -388,8 +388,8 @@
           <Key>
             <PropertyRef Name="ID_Danhmuc" />
           </Key>
-          <Property Name="ID_Danhmuc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_Nhom_Danh_Muc" Type="Int32" Nullable="false" />
+          <Property Name="ID_Danhmuc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Nhom_Danh_Muc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Ten_Danhmuc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Trangthai" Type="Int32" />
           <NavigationProperty Name="Nhom_Danh_Muc" Relationship="Self.FK_Danh_muc_Nhom_Danh_Muc" FromRole="Danh_muc" ToRole="Nhom_Danh_Muc" />
@@ -475,7 +475,7 @@
           <Key>
             <PropertyRef Name="ID_Nhom_Danh_muc" />
           </Key>
-          <Property Name="ID_Nhom_Danh_muc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Nhom_Danh_muc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Ten_Nhom_Danh_muc" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Danh_muc" Relationship="Self.FK_Danh_muc_Nhom_Danh_Muc" FromRole="Nhom_Danh_Muc" ToRole="Danh_muc" />
         </EntityType>
@@ -486,7 +486,7 @@
           <Property Name="ID_Sanpham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Tensanpham" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ID_Khuyenmai" Type="Int32" Nullable="false" />
-          <Property Name="ID_Danh_Muc" Type="Int32" Nullable="false" />
+          <Property Name="ID_Danh_Muc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Mota" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Gia" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Ngaycapnhat" Type="DateTime" Precision="0" />

@@ -37,8 +37,10 @@
         </div>
         <div class="row row-pb-md">
             <div class="row row-pb-md">
+                @{ string id_dm ="";}
                 @foreach (var item in Model)
                 {
+                    id_dm = ViewBag.id;
                     <div class="col-md-3 col-lg-3 mb-4 text-center">
 
                         <div class="product-entry border">
@@ -64,7 +66,7 @@
             <div class="col-md-12 text-center">
                 <div class="block-27" style="text-align:center;">
                     <ul  >
-                        @Html.PagedListPager(Model, page => Url.Action("Product", new { page }))
+                        @Html.PagedListPager(Model, page => Url.Action("Product", new { page , iddm = id_dm }))
                     </ul>
                 </div>
             </div>

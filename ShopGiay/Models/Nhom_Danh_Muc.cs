@@ -20,7 +20,7 @@ namespace ShopGiay.Models
             this.Danh_muc = new HashSet<Danh_muc>();
         }
     
-        public int ID_Nhom_Danh_muc { get; set; }
+        public string ID_Nhom_Danh_muc { get; set; }
         public string Ten_Nhom_Danh_muc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
