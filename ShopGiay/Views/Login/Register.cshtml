@@ -115,6 +115,16 @@
                     <i class="fa fa-envelope icon"></i>
                     @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input-field" } })
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    
+                </div>
+                <div>
+                    <p>
+                        @if (ViewBag.loiEmail != null)
+                        {
+                            <span>@ViewBag.loiEmail</span>
+                        }
+                    </p>
+                    
                 </div>
                 <div class="input-container">
                     <i class="fa fa-phone-square icon"></i>

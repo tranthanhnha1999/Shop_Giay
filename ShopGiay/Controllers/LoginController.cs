@@ -21,15 +21,33 @@ namespace ShopGiay.Controllers
         [HttpPost]
         public ActionResult Register(Nguoi_dung nguoi_Dung)
         {
-            
-            if (ModelState.IsValid)
+            var checkemail = db.Nguoi_dung.FirstOrDefault(p => p.Email == nguoi_Dung.Email);
+            var checktaikhoan = db.Nguoi_dung.FirstOrDefault(p => p.Tai_Khoan == nguoi_Dung.Tai_Khoan);
+            if (checkemail == null)
             {
-
-                nguoi_Dung.Mat_Khau = Encode.EncodeMd5(nguoi_Dung.Mat_Khau);
-                db.Nguoi_dung.Add(nguoi_Dung);
-                db.SaveChanges();
+                if(checktaikhoan == null)
+                {
+                    if (ModelState.IsValid)
+                    {
+                        nguoi_Dung.Mat_Khau = Encode.EncodeMd5(nguoi_Dung.Mat_Khau);
+                        db.Nguoi_dung.Add(nguoi_Dung);
+                        db.SaveChanges();
+                    }
+                    return RedirectToAction("Index", "TTN_Shop");
+                }
+                else
+                {
+                    ViewBag.loitaikhoan = "Tài khoản đã tồn tại !! Vui lòng nhập tài khoản khác";
+                    return RedirectToAction("Register","Login");
+                }
+               
             }
-            return RedirectToAction("Index","TTN_Shop");
+            else
+            {
+                ViewBag.loiEmail = "Email đã tồn tại !! Vui lòng nhập Email khác";
+                return RedirectToAction("Register", "Login");
+            }
+            
         }
         public ActionResult Login()
         {
