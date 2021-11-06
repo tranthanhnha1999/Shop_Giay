@@ -19,6 +19,16 @@ namespace ShopGiay.Controllers
         {
             return db.San_pham.OrderByDescending(x => x.Ngaycapnhat).Where(x => x.ID_Danh_Muc.Equals(iddm)).ToPagedList(page, pageSize);
         }
+        public IEnumerable<San_pham> AllListPagingByNhomdanhmuc(int page, int pageSize, string idndm)
+        {
+
+            var model = (from s in db.San_pham
+                         join d in db.Danh_muc on s.ID_Danh_Muc equals d.ID_Danhmuc
+                         join n in db.Nhom_Danh_Muc on d.ID_Nhom_Danh_Muc equals idndm
+                         select s).Distinct().OrderByDescending(x => x.Ngaycapnhat).ToPagedList(page, pageSize);
+
+            return model;
+        }
         // GET: TTN_Shop
         public ActionResult Index()
         {
@@ -27,29 +37,34 @@ namespace ShopGiay.Controllers
             ViewBag.slide = db.Slides.ToList();
             ViewBag.hinhanh = db.Hinh_anh.ToList();
             var model = (from S in db.San_pham orderby S.Ngaycapnhat descending select S).Take(12);
-
             
             return View(model);
         }
-        public ActionResult Product(string iddm ,int page = 1 ,int pageSize = 16)
+        public ActionResult Product(string idndm, string iddm, int page = 1, int pageSize = 16)
         {
+            
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
             ViewBag.danhmuc = db.Danh_muc.ToList();
             ViewBag.hinhanh = db.Hinh_anh.ToList();
-            if (iddm == null)
+            if (iddm != null)
             {
-                var model = AllListPaging(page, pageSize);
-                ViewBag.id = null;
+                 var model = AllListPagingByDanhmuc(page, pageSize, iddm);
+                ViewBag.id = iddm;
+                return View(model);
+            }
+            else if (idndm != null)
+            {
+                 var model = AllListPagingByNhomdanhmuc(page, pageSize, idndm);
+                ViewBag.idndm = idndm;
                 return View(model);
             }
             else
             {
-               
-                var model = AllListPagingByDanhmuc(page,pageSize,iddm);
-                ViewBag.id = iddm;
+                 var model = AllListPaging(page, pageSize);
+                ViewBag.idndm = null;
                 return View(model);
             }
-            
+
         }
         public ActionResult Details(int id)
         {

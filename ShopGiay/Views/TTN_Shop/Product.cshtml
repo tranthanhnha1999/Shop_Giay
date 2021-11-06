@@ -37,10 +37,12 @@
         </div>
         <div class="row row-pb-md">
             <div class="row row-pb-md">
-                @{ string id_dm ="";}
+                @{ string id_dm = "";}
+                @{ string id_ndm = "";}
                 @foreach (var item in Model)
                 {
                     id_dm = ViewBag.id;
+                    id_ndm = ViewBag.idndm;
                     <div class="col-md-3 col-lg-3 mb-4 text-center">
 
                         <div class="product-entry border">
@@ -62,11 +64,11 @@
             </div>
 
         </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <div class="block-27" style="text-align:center;">
-                    <ul  >
-                        @Html.PagedListPager(Model, page => Url.Action("Product", new { page , iddm = id_dm }))
+        <div class="row " style="justify-content:center">
+            <div class="text-center">
+                <div class="block-27 " >
+                    <ul class="mx-auto">
+                        @Html.PagedListPager(Model, page => Url.Action("Product", new { page , iddm = id_dm , idndm = id_ndm }))
                     </ul>
                 </div>
             </div>

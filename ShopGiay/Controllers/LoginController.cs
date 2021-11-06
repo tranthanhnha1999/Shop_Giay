@@ -38,7 +38,7 @@ namespace ShopGiay.Controllers
                 else
                 {
                     ViewBag.loitaikhoan = "Tài khoản đã tồn tại !! Vui lòng nhập tài khoản khác";
-                    return RedirectToAction("Register","Login");
+                    return View();
                 }
                
             }

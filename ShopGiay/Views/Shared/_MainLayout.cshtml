@@ -74,16 +74,18 @@
                                         <ul class="dropdown">
                                             @foreach (Danh_muc dm in (List<Danh_muc>)ViewBag.danhmuc)
                                             {
-                                                <li>
-                                                    <a href="@Url.Action("Product","TTN_Shop",new { iddm = dm.ID_Danhmuc },null)">
-                                                        @if (dm.ID_Nhom_Danh_Muc == item.ID_Nhom_Danh_muc)
-                                                        {
+                                                if (dm.ID_Nhom_Danh_Muc == item.ID_Nhom_Danh_muc)
+                                                {
+                                                    <li>
+                                                        <a href="@Url.Action("Product","TTN_Shop",new { iddm = dm.ID_Danhmuc },null)">
+
                                                             @dm.Ten_Danhmuc
-                                                        }
-                                                    </a>
-                                                </li>
+                                                            
+                                                        </a>
+                                                    </li>
+                                                }
                                             }
-                                        </ul>
+                                            </ul>
 
                                     </li>
                                 }
