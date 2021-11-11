@@ -10,12 +10,13 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.jss"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            
         }
 
         .Register-Form {
@@ -38,27 +39,24 @@
             display: flex;
             width: 100%;
             margin-bottom: 10px;
-            
-            
         }
-        .form{
-            text-align:center;
-            padding-left :5px;
+
+        .form {
+            text-align: center;
+            padding-left: 5px;
         }
 
         .icon {
             padding: 10px;
             color: fuchsia;
             min-width: 50px;
-
         }
-        
+
 
         .input-field {
             width: 100%;
             padding: 3px;
             outline: none;
-
         }
 
             .input-field:focus {
@@ -90,59 +88,65 @@
             <form action="" style="max-width:500px;margin:auto; ">
                 <h2 style="color:deeppink">Đăng Ký</h2>
                 <div class="input-container">
-                    <div class="col-6"> 
-                           <h4 class="fa fa-user icon"> Họ và tên :</h4>
+                    <div class="col-6">
+                        <h4 class="fa fa-user icon"> Họ và tên :</h4>
                     </div>
                     <div class="form">
                         @Html.EditorFor(model => model.Ten_Nguoidung, new { htmlAttributes = new { @class = "input-field" } })
-                        @Html.ValidationMessageFor(model => model.Ten_Nguoidung, "", new { @class = "text-danger" })
+
                     </div>
-                  
+
+                </div>
+                <div>
+                    <p>@Html.ValidationMessageFor(model => model.Ten_Nguoidung, "", new { @class = "text-danger" })</p>
                 </div>
                 <div class="input-container">
-                    <div  class="col-6">
-                        <h4 class="form fa fa-birthday-cake icon "> Người dùng :</h4>
-                    </div>
-                    <div  class="form">
-                        @Html.EditorFor(model => model.Ngay_sinh, new { htmlAttributes = new { @class = "input-field", Type = "date" } })
-                        @Html.ValidationMessageFor(model => model.Ngay_sinh, "", new { @class = "col-5" })
-                    </div>
-                </div>
-                <div class="input-container">
-                    <div style="text-align:center;"  class="col-6">
-                        <h4>Vai trò :</h4>
+                    <div class="col-6">
+                        <h4 class="form fa fa-birthday-cake icon "> Ngày Sinh :</h4>
                     </div>
                     <div class="form">
-                        @Html.DropDownList("ID_vaitro", (IEnumerable<SelectListItem>)ViewBag.vaitro, new { @class = "input-field" })
-                        @Html.ValidationMessageFor(model => model.ID_vaitro, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Ngay_sinh, new { htmlAttributes = new { @class = "input-field", Type = "date" } })
+
                     </div>
+
+                </div>
+                <div>
+                    <p>@Html.ValidationMessageFor(model => model.Ngay_sinh, "", new { @class = "text-danger" })</p>
                 </div>
                 <div class="input-container">
-                    <div style="text-align:center;"  class="col-6">
+                    <div style="text-align:center;" class="col-6">
                         <h4 class="fa fa-image icon"> Hình ảnh :</h4>
                     </div>
                     <div class="form">
-                    @Html.EditorFor(model => model.Hinh_anh, new { htmlAttributes = new { @class = "input-field" } })
-                    @Html.ValidationMessageFor(model => model.Hinh_anh, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Hinh_anh, new { htmlAttributes = new { @class = "input-field" } })
+                        @Html.ValidationMessageFor(model => model.Hinh_anh, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="input-container">
-                    <div style="text-align:center;"  class="col-6">
+                    <div style="text-align:center;" class="col-6">
                         <h4 class="fa fa-address-book icon"> Đia chỉ :</h4>
                     </div>
                     <div class="form">
                         @Html.EditorFor(model => model.Dia_chi, new { htmlAttributes = new { @class = "input-field" } })
-                        @Html.ValidationMessageFor(model => model.Dia_chi, "", new { @class = "text-danger" })
+
                     </div>
+
+                </div>
+                <div>
+                    <p>@Html.ValidationMessageFor(model => model.Dia_chi, "", new { @class = "text-danger" })</p>
                 </div>
                 <div class="input-container">
-                    <div style="text-align:center;"  class="col-6">
+                    <div style="text-align:center;" class="col-6">
                         <h4 class="fa fa-envelope icon"> Email :</h4>
                     </div>
                     <div class="form">
                         @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input-field" } })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
                     </div>
+
+                </div>
+                <div>
+                    <p>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</p>
                 </div>
                 <div>
                     <p>
@@ -154,22 +158,30 @@
 
                 </div>
                 <div class="input-container">
-                    <div style="text-align:center;"  class="col-6">
+                    <div style="text-align:center;" class="col-6">
                         <h4 class="fa fa-phone-square icon"> Số điện thoại :</h4>
                     </div>
                     <div style="text-align:center;" class="form">
                         @Html.EditorFor(model => model.So_DT, new { htmlAttributes = new { @class = "input-field" } })
-                        @Html.ValidationMessageFor(model => model.So_DT, "", new { @class = "text-danger" })
+
                     </div>
+
+                </div>
+                <div>
+                    <p>@Html.ValidationMessageFor(model => model.So_DT, "", new { @class = "text-danger" })</p>
                 </div>
                 <div class="input-container">
-                    <div style="text-align:center;"  class="col-6">
+                    <div style="text-align:center;" class="col-6">
                         <h4 class="fa fa-user icon"> Tài Khoản :</h4>
                     </div>
-                   <div class="form">
-                    @Html.EditorFor(model => model.Tai_Khoan, new { htmlAttributes = new { @class = "input-field" } })
-                    @Html.ValidationMessageFor(model => model.Tai_Khoan, "", new { @class = "text-danger" })
-                   </div>
+                    <div class="form">
+                        @Html.EditorFor(model => model.Tai_Khoan, new { htmlAttributes = new { @class = "input-field" } })
+
+                    </div>
+
+                </div>
+                <div>
+                    <p>@Html.ValidationMessageFor(model => model.Tai_Khoan, "", new { @class = "text-danger" })</p>
                 </div>
                 <div>
                     <p>
@@ -180,15 +192,19 @@
                     </p>
 
                 </div>
-                <div class="input-container" >
-                    <div style="text-align:center;"  class="col-6">
+                <div class="input-container">
+                    <div style="text-align:center;" class="col-6">
                         <h4 class="fa fa-key icon"> Mật khẩu :</h4>
                     </div>
                     <div class="form">
-                        @Html.PasswordFor(model => model.Mat_Khau, new { htmlAttributes = new { @class = "input-field" } })
-                        @Html.ValidationMessageFor(model => model.Mat_Khau, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Mat_Khau, new { htmlAttributes = new { @class = "input-field" } })
                     </div>
+
                 </div>
+                <div>
+                    <p>@Html.ValidationMessageFor(model => model.Mat_Khau, "", new { @class = "text-danger" })</p>
+                </div>
+
 
 
 

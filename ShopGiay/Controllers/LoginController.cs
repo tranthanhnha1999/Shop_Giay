@@ -21,33 +21,51 @@ namespace ShopGiay.Controllers
         [HttpPost]
         public ActionResult Register(Nguoi_dung nguoi_Dung)
         {
+            ViewBag.vaitro = new SelectList(db.Vai_tro.ToList(), "ID_Vai_tro", "Ten_vai_tro");
+            ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.ToList();
             var checkemail = db.Nguoi_dung.FirstOrDefault(p => p.Email == nguoi_Dung.Email);
             var checktaikhoan = db.Nguoi_dung.FirstOrDefault(p => p.Tai_Khoan == nguoi_Dung.Tai_Khoan);
-            if (checkemail == null)
+            if (ModelState.IsValid)
             {
-                if(checktaikhoan == null)
+                if (checkemail == null)
                 {
-                    if (ModelState.IsValid)
+                    if (checktaikhoan == null)
                     {
+
+                        db.Configuration.ValidateOnSaveEnabled = false;
                         nguoi_Dung.Mat_Khau = Encode.EncodeMd5(nguoi_Dung.Mat_Khau);
-                        db.Nguoi_dung.Add(nguoi_Dung);
+                        Nguoi_dung nd = new Nguoi_dung();
+                        nd.ID_vaitro = 1;
+                        nd.Ten_Nguoidung = nguoi_Dung.Ten_Nguoidung;
+                        nd.Ngay_sinh = nguoi_Dung.Ngay_sinh;
+                        nd.So_DT = nguoi_Dung.So_DT;
+                        nd.Hinh_anh = nguoi_Dung.Hinh_anh;
+                        nd.Dia_chi = nguoi_Dung.Dia_chi;
+                        nd.Email = nguoi_Dung.Email;
+                        nd.Tai_Khoan = nguoi_Dung.Tai_Khoan;
+                        nd.Mat_Khau = nguoi_Dung.Mat_Khau;
+                        db.Nguoi_dung.Add(nd);
+
                         db.SaveChanges();
+                        return RedirectToAction("Login", "Login");
                     }
-                    return RedirectToAction("Index", "TTN_Shop");
+                    else
+                    {
+                        ViewBag.loitaikhoan = "Tài khoản đã tồn tại !! Vui lòng nhập tài khoản khác";
+                        return View();
+                    }
+
                 }
                 else
                 {
-                    ViewBag.loitaikhoan = "Tài khoản đã tồn tại !! Vui lòng nhập tài khoản khác";
+                    ViewBag.loiEmail = "Email đã tồn tại !! Vui lòng nhập Email khác";
                     return View();
                 }
-               
+
             }
-            else
-            {
-                ViewBag.loiEmail = "Email đã tồn tại !! Vui lòng nhập Email khác";
-                return RedirectToAction("Register", "Login");
-            }
-            
+            return View();
+
         }
         public ActionResult Login()
         {
@@ -64,7 +82,10 @@ namespace ShopGiay.Controllers
             var ketqua = db.Nguoi_dung.Where(p => p.Tai_Khoan.Equals(username) && p.Mat_Khau.Equals(pass)).FirstOrDefault();
             if(ketqua != null)
             {
-                
+                Session["Nguoidung"] = ketqua.ID_Nguoidung;
+                Session["Tennguoidung"] = ketqua.Ten_Nguoidung;
+                Session["Emailnguoidung"] = ketqua.Email;
+                Session["Mota"] = ketqua.Dia_chi;
                 return RedirectToAction("Index", "TTN_Shop");
             }
             else

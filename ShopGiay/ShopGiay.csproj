@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GiohangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TTN_ShopController.cs" />
@@ -150,6 +151,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Encode.cs" />
+    <Compile Include="Models\Giohang.cs" />
     <Compile Include="Models\Hinh_anh.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -1615,6 +1617,7 @@
     <Content Include="Views\TTN_Shop\Details.cshtml" />
     <Content Include="Views\TTN_Shop\Product.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Giohang\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

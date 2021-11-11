@@ -17,7 +17,7 @@ namespace ShopGiay.Models
         public int ID_Donhang { get; set; }
         public int ID_Sanpham { get; set; }
         public Nullable<int> soluong { get; set; }
-        public Nullable<System.DateTime> Gia { get; set; }
+        public Nullable<decimal> Gia { get; set; }
     
         public virtual Don_hang Don_hang { get; set; }
         public virtual San_pham San_pham { get; set; }

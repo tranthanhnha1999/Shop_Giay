@@ -1,0 +1,218 @@
+﻿@model IEnumerable<ShopGiay.Models.Giohang>
+@using ShopGiay.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<title>Footwear - Free Bootstrap 4 Template by Colorlib</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="css/animate.css">
+<!-- Icomoon Icon Fonts-->
+<link rel="stylesheet" href="css/icomoon.css">
+<!-- Ion Icon Fonts-->
+<link rel="stylesheet" href="css/ionicons.min.css">
+<!-- Bootstrap  -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<!-- Magnific Popup -->
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Flexslider  -->
+<link rel="stylesheet" href="css/flexslider.css">
+
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+<!-- Date Picker -->
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<!-- Flaticons  -->
+<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+<!-- Theme style  -->
+<link rel="stylesheet" href="css/style.css">
+
+@{
+
+    if (Model == null)
+    {
+        <br />
+        <br />
+        <h1 style="text-align:center; color:palegreen">Bạn chưa có sản phẩm nào trong giỏ hàng</h1>
+    }
+    else
+    {
+        int count = 1;
+        <nav class="colorlib-nav" role="navigation">
+            <div class="sale">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 offset-sm-2 text-center">
+                            <div class="row">
+                                <div class="owl-carousel2">
+                                    <div class="item">
+                                        <div class="col">
+                                            <h3><a href="#">FREESHIP ĐƠN ONLINE TỪ 1.000.000 - ĐẢM BẢO 100% SẢN PHẨM CHÍNH HẢNG</a></h3>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="col">
+                                            <h3><a href="#">Sale ngập sàn - thàng hạnh phúc</a></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="breadcrumbs">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="bread"><span><a href="@Url.Action("Index","TTN_Shop")">Trang chủ</a></span> / <span>Giỏ hàng</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-pb-lg">
+                <div class="col-md-10 offset-md-1">
+                    <div class="process-wrap">
+                        <div class="process text-center ">
+                            <p><span>01</span></p>
+                            <h3>Thêm vào giỏ hàng</h3>
+                        </div>
+                        <div class="process text-center">
+                            <p><span>02</span></p>
+                            <h3>Nhập Thông tin thanh toán</h3>
+                        </div>
+                        <div class="process text-center">
+                            <p><span>03</span></p>
+                            <h3>Mua Hàng</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-pb-lg">
+                <div class="col-md-12">
+                    <div class="product-name d-flex">
+                        <div class="one-eight text-center">
+                            <span>STT</span>
+                        </div>
+                        <div class="one-forth text-left px-5">
+                            <span>Thông tin sản phẩm</span>
+                        </div>
+                        <div class="one-eight text-center">
+                            <span>Giá</span>
+                        </div>
+                        <div class="one-eight text-center">
+                            <span>Số lượng</span>
+                        </div>
+                        <div class="one-eight text-center">
+                            <span>Tổng tiền</span>
+                        </div>
+                        <div class="one-eight text-center px-4">
+                            <span>Xóa</span>
+                        </div>
+                    </div>
+                    @{ double total = 0;}
+                    @foreach (var item in Model)
+                    {
+                        <div class="product-cart d-flex">
+                            <div class="one-eight text-center">
+                                <span  class="display-tc">
+                                    @count @{count++;}
+                                </span>
+                            </div>
+                            <div class="one-forth">
+                                <img class="product-img" src="~/Asset/images/@foreach (Hinh_anh hh in (List<Hinh_anh>)ViewBag.hinhanh){ if (hh.ID_San_Pham == @item.san_Pham.ID_Sanpham) { @hh.Hinhchinh } }" />
+                                <div class="display-tc">
+                                    <h3>@item.san_Pham.Tensanpham</h3>
+                                </div>
+                            </div>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <span class="price">
+                                        @{ var price = string.Format("{0:0,0 VĐN}", item.san_Pham.Gia);}
+                                        @price
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <b style="font-size:30px; ">
+                                        @Html.ActionLink("-", "capnhat", "Giohang", new { id = item.san_Pham.ID_Sanpham, quantity = item.soluong - 1 }, null)
+                                    </b>
+                                    <input class="" type="text" name="quantity" value="@item.soluong" maxlength="2" size="2" />
+                                    <b style="font-size:30px; ">
+                                        @Html.ActionLink("+", "capnhat", "Giohang", new { id = item.san_Pham.ID_Sanpham, quantity = item.soluong + 1 }, null)
+                                    </b>
+                                </div>
+                            </div>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <span class="price">
+                                        @{double money = (double)item.san_Pham.Gia * item.soluong;}
+                                        @{var newmoney = string.Format("{0:0,0 VNĐ}", money);}
+                                        @{total = total + money;}
+                                        @newmoney
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="one-eight text-center">
+                                <div class="display-tc">
+                                    <a href="@Url.Action("Xoa","Giohang" , new { id = item.san_Pham.ID_Sanpham})" class="closed"></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    <div class="row row-pb-lg" >
+                        <div class="col-md-12" >
+                            <div class="total-wrap" >
+                                <div class="row">
+                                    <div class="col-sm-4 text-center">
+                                        <div class="total">
+
+                                            <div class="grand-total">
+                                                <p>
+                                                    <span><strong>Thành Tiền :</strong></span>
+                                                    <span>
+                                                        @{ var totalMoney = string.Format("{0:0,0 VNĐ}", total);}
+                                                        @totalMoney
+                                                    </span>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-4 text-center">
+                                            <a href="@Url.Action("dathang","Giohang")">Đặt mua</a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    }
+}
+
+
+
+
+
+

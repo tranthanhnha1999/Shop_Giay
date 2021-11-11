@@ -26,10 +26,5 @@ namespace ShopGiay.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Nguoi_dung> Nguoi_dung { get; set; }
-
-        public static implicit operator Vai_tro(string v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

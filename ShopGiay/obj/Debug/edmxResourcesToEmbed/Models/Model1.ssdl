@@ -8,7 +8,7 @@
     <Property Name="ID_Donhang" Type="int" Nullable="false" />
     <Property Name="ID_Sanpham" Type="int" Nullable="false" />
     <Property Name="soluong" Type="int" />
-    <Property Name="Gia" Type="smalldatetime" />
+    <Property Name="Gia" Type="numeric" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="Danh_muc">
     <Key>
@@ -29,7 +29,7 @@
     <Property Name="Ten_Nguoidung" Type="nvarchar" MaxLength="250" />
     <Property Name="Email_Nguoidung" Type="nvarchar" MaxLength="250" />
     <Property Name="Mota" Type="nvarchar" MaxLength="250" />
-    <Property Name="Tongtien" Type="smalldatetime" />
+    <Property Name="Tongtien" Type="numeric" Precision="18" Scale="0" />
     <Property Name="Trangthai" Type="int" />
   </EntityType>
   <EntityType Name="Hinh_anh">

@@ -13,7 +13,7 @@
           <Property Name="ID_Donhang" Type="int" Nullable="false" />
           <Property Name="ID_Sanpham" Type="int" Nullable="false" />
           <Property Name="soluong" Type="int" />
-          <Property Name="Gia" Type="smalldatetime" />
+          <Property Name="Gia" Type="numeric" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Danh_muc">
           <Key>
@@ -34,7 +34,7 @@
           <Property Name="Ten_Nguoidung" Type="nvarchar" MaxLength="250" />
           <Property Name="Email_Nguoidung" Type="nvarchar" MaxLength="250" />
           <Property Name="Mota" Type="nvarchar" MaxLength="250" />
-          <Property Name="Tongtien" Type="smalldatetime" />
+          <Property Name="Tongtien" Type="numeric" Precision="18" Scale="0" />
           <Property Name="Trangthai" Type="int" />
         </EntityType>
         <EntityType Name="Hinh_anh">
@@ -380,7 +380,7 @@
           <Property Name="ID_Donhang" Type="Int32" Nullable="false" />
           <Property Name="ID_Sanpham" Type="Int32" Nullable="false" />
           <Property Name="soluong" Type="Int32" />
-          <Property Name="Gia" Type="DateTime" Precision="0" />
+          <Property Name="Gia" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="Don_hang" Relationship="Self.FK_Chi_tiet_don_hang_Don_hang" FromRole="Chi_tiet_don_hang" ToRole="Don_hang" />
           <NavigationProperty Name="San_pham" Relationship="Self.FK_Chi_tiet_don_hang_San_pham" FromRole="Chi_tiet_don_hang" ToRole="San_pham" />
         </EntityType>
@@ -405,7 +405,7 @@
           <Property Name="Ten_Nguoidung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Email_Nguoidung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Mota" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Tongtien" Type="DateTime" Precision="0" />
+          <Property Name="Tongtien" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="Trangthai" Type="Int32" />
           <NavigationProperty Name="Chi_tiet_don_hang" Relationship="Self.FK_Chi_tiet_don_hang_Don_hang" FromRole="Don_hang" ToRole="Chi_tiet_don_hang" />
           <NavigationProperty Name="Nguoi_dung" Relationship="Self.FK_Don_hang_Nguoi_dung" FromRole="Don_hang" ToRole="Nguoi_dung" />

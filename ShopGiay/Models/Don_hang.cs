@@ -28,7 +28,7 @@ namespace ShopGiay.Models
         public string Ten_Nguoidung { get; set; }
         public string Email_Nguoidung { get; set; }
         public string Mota { get; set; }
-        public Nullable<System.DateTime> Tongtien { get; set; }
+        public Nullable<decimal> Tongtien { get; set; }
         public Nullable<int> Trangthai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
