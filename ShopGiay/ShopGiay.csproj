@@ -134,6 +134,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminSanphamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\NhomdanhmucController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonhangController.cs" />
     <Compile Include="Controllers\GiohangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -141,6 +146,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminSanpham.cs" />
     <Compile Include="Models\Chi_tiet_don_hang.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -238,6 +244,7 @@
     <Content Include="Asset\images\brand4.png" />
     <Content Include="Asset\images\brand5.png" />
     <Content Include="Asset\images\cover-img-1.jpg" />
+    <Content Include="Asset\images\Daygiay1.jpg" />
     <Content Include="Asset\images\dep1.jpg" />
     <Content Include="Asset\images\dep2.jpg" />
     <Content Include="Asset\images\dep3.jpg" />
@@ -396,6 +403,12 @@
     <Content Include="Asset\images\GiayA24.jpg" />
     <Content Include="Asset\images\GiayA24_1.jpg" />
     <Content Include="Asset\images\GiayA24_2.jpg" />
+    <Content Include="Asset\images\GiayA25.jpg" />
+    <Content Include="Asset\images\GiayA25_1.jpg" />
+    <Content Include="Asset\images\GiayA25_2.jpg" />
+    <Content Include="Asset\images\GiayA26.jpg" />
+    <Content Include="Asset\images\GiayA26_1.jpg" />
+    <Content Include="Asset\images\GiayA26_2.jpg" />
     <Content Include="Asset\images\GiayA2_1.jpg" />
     <Content Include="Asset\images\GiayA2_2.jpg" />
     <Content Include="Asset\images\GiayA3.jpg" />
@@ -1579,6 +1592,20 @@
     <Content Include="Asset\sass\bootstrap\_utilities.scss" />
     <Content Include="Asset\sass\bootstrap\_variables.scss" />
     <Content Include="Asset\sass\style.scss" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHome\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Nhomdanhmuc\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Nhomdanhmuc\create.cshtml" />
+    <Content Include="Areas\Admin\Views\Nhomdanhmuc\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Nhomdanhmuc\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Nhomdanhmuc\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSanpham\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSanpham\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSanpham\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSanpham\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Donhang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Donhang\Details.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -1586,6 +1613,7 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Donhang\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1618,9 +1646,14 @@
     <Content Include="Views\TTN_Shop\Product.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
     <Content Include="Views\Giohang\Index.cshtml" />
+    <Content Include="Views\Giohang\Thongtindonhang.cshtml" />
+    <Content Include="Views\TTN_Shop\Lichsumh.cshtml" />
+    <Content Include="Views\TTN_Shop\Detaildh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

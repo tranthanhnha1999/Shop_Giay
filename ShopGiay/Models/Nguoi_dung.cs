@@ -21,9 +21,9 @@ namespace ShopGiay.Models
             this.Don_hang = new HashSet<Don_hang>();
             this.Thanh_toan = new HashSet<Thanh_toan>();
         }
-    
+
         public int ID_Nguoidung { get; set; }
-        [Required(ErrorMessage =" Vui lòng nhập Họ và tên !!")]
+        [Required(ErrorMessage = " Vui lòng nhập Họ và tên !!")]
         public string Ten_Nguoidung { get; set; }
         public Nullable<System.DateTime> Ngay_sinh { get; set; }
         public int ID_vaitro { get; set; }
@@ -33,10 +33,10 @@ namespace ShopGiay.Models
         [RegularExpression(@"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$", ErrorMessage = " Đây không phải là Email !!")]
         [Required(ErrorMessage = " Vui lòng nhập Email !!")]
-        
+
         public string Email { get; set; }
         [Required(ErrorMessage = " Vui lòng nhập Số điện thoại !!")]
-        [RegularExpression(@"^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$",ErrorMessage ="Đây không phải là số điện thoại")]
+        [RegularExpression(@"^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$", ErrorMessage = "Đây không phải là số điện thoại")]
         public Nullable<int> So_DT { get; set; }
         [Required(ErrorMessage = " Vui lòng nhập tài khoản !!")]
         public string Tai_Khoan { get; set; }
@@ -45,7 +45,7 @@ namespace ShopGiay.Models
         [DataType(DataType.Password)]
         public string Mat_Khau { get; set; }
         public Nullable<int> Trangthai { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Don_hang> Don_hang { get; set; }
         public virtual Vai_tro Vai_tro { get; set; }

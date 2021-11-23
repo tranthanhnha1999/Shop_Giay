@@ -82,11 +82,19 @@ namespace ShopGiay.Controllers
             var ketqua = db.Nguoi_dung.Where(p => p.Tai_Khoan.Equals(username) && p.Mat_Khau.Equals(pass)).FirstOrDefault();
             if(ketqua != null)
             {
+                if(ketqua.ID_vaitro == 1) { 
                 Session["Nguoidung"] = ketqua.ID_Nguoidung;
                 Session["Tennguoidung"] = ketqua.Ten_Nguoidung;
                 Session["Emailnguoidung"] = ketqua.Email;
                 Session["Mota"] = ketqua.Dia_chi;
+                Session["Sdt"] = ketqua.So_DT;
                 return RedirectToAction("Index", "TTN_Shop");
+                }
+                else
+                {
+                    Session["Admin"] = ketqua.ID_Nguoidung;
+                    return Redirect("https://localhost:44316/Admin/AdminHome");
+                }
             }
             else
             {

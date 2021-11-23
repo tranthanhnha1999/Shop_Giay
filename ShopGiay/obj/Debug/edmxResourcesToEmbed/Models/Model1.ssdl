@@ -30,6 +30,7 @@
     <Property Name="Email_Nguoidung" Type="nvarchar" MaxLength="250" />
     <Property Name="Mota" Type="nvarchar" MaxLength="250" />
     <Property Name="Tongtien" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="ID_Nhanvien" Type="int" />
     <Property Name="Trangthai" Type="int" />
   </EntityType>
   <EntityType Name="Hinh_anh">

@@ -31,6 +31,7 @@
           <ScalarProperty Name="Email_Nguoidung" ColumnName="Email_Nguoidung" />
           <ScalarProperty Name="Mota" ColumnName="Mota" />
           <ScalarProperty Name="Tongtien" ColumnName="Tongtien" />
+          <ScalarProperty Name="ID_Nhanvien" ColumnName="ID_Nhanvien" />
           <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
         </MappingFragment>
       </EntityTypeMapping>

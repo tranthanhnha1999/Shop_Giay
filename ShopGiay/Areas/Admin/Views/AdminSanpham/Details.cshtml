@@ -1,0 +1,79 @@
+﻿@model ShopGiay.Models.San_pham
+@using ShopGiay.Models
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>San_pham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Tensanpham)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tensanpham)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaycapnhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaycapnhat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Danh_muc.Ten_Danhmuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Danh_muc.Ten_Danhmuc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Danh_muc.Nhom_Danh_Muc.Ten_Nhom_Danh_muc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Danh_muc.Nhom_Danh_Muc.Ten_Nhom_Danh_muc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Khuyen_mai.Ten_giamgia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Khuyen_mai.Ten_giamgia)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hinh_anh)
+        </dt>
+
+        <td>
+            <img src="~/Asset/images/@foreach (Hinh_anh hh in (List<Hinh_anh>)ViewBag.hinhanh){ if (hh.ID_San_Pham == Model.ID_Sanpham) { @hh.Hinhchinh } } " width="150px" class="img-fluid" alt="Free html5 bootstrap 4 template">
+        </td>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Sanpham }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

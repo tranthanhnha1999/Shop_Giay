@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ShopGiay.Models.San_pham>
+@using ShopGiay.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Tensanpham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ngaycapnhat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trangthai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Danh_muc.ID_Nhom_Danh_Muc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Khuyen_mai.Ten_giamgia)
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tensanpham)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trangthai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Danh_muc.ID_Nhom_Danh_Muc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Khuyen_mai.Ten_giamgia)
+        </td>
+        <td>
+            <img src="~/Asset/images/@foreach (Hinh_anh hh in (List<Hinh_anh>)ViewBag.hinhanh){ if (hh.ID_San_Pham == item.ID_Sanpham) { @hh.Hinhchinh } } " width="150px" class="img-fluid" alt="Free html5 bootstrap 4 template">
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Sanpham }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_Sanpham }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Sanpham })
+        </td>
+    </tr>
+}
+
+</table>

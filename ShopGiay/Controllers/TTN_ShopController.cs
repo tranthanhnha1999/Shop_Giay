@@ -75,5 +75,23 @@ namespace ShopGiay.Controllers
 
             return View(model);
         }
+        public ActionResult Lichsumh()
+        {
+            ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.hinhanh = db.Hinh_anh.ToList();
+            int id_user = (int)Session["Nguoidung"];
+            var models = db.Don_hang.Where(p => p.ID_Nguoidung == id_user).OrderBy(p => p.Ngay_Dat_hang);
+            return View(models);
+        }
+        public ActionResult Detaildh(int id)
+        {
+            ViewBag.dh = db.Don_hang.Find(id);
+            ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.hinhanh = db.Hinh_anh.ToList();
+            var model = db.Chi_tiet_don_hang.Where(p => p.ID_Donhang == id).ToList();
+            return View(model);
+        }
     }
 }

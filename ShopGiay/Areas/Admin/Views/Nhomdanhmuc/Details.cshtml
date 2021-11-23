@@ -1,0 +1,27 @@
+﻿@model ShopGiay.Models.Nhom_Danh_Muc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Nhom_Danh_Muc</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ten_Nhom_Danh_muc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten_Nhom_Danh_muc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Nhom_Danh_muc }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

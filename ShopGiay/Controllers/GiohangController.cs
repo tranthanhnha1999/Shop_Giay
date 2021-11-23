@@ -129,8 +129,56 @@ namespace ShopGiay.Controllers
                 Session["cartSession"] = null;
                 return RedirectToAction("Index", "TTN_Shop");
             }
-
         }
+        //public ActionResult Thongtindonhang()
+        //{
+        //    ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
+        //    ViewBag.danhmuc = db.Danh_muc.ToList();
+        //    ViewBag.hinhanh = db.Hinh_anh.ToList();
+        //    return View();
+            
+
+        //}
+        //[HttpPost]
+        //public ActionResult Thongtindonhang(Giohang gh)
+        //{
+        //    Don_hang dh = new Don_hang();
+        //    dh.ID_Donhang = db.Don_hang.OrderByDescending(p => p.ID_Donhang).First().ID_Donhang + 1;
+        //    dh.Ngay_Dat_hang = DateTime.Now;
+        //    dh.ID_Nguoidung = (int)Session["Nguoidung"];
+        //    dh.Ten_Nguoidung = (string)Session["Tennguoidung"];
+        //    dh.Email_Nguoidung = (string)Session["Emailnguoidung"];
+        //    dh.Mota = (string)Session["Mota"];
+        //    dh.Trangthai = 0;
+        //    //dh.Tongtien = (decimal)Session["Tongtien"];
+        //    db.Don_hang.Add(dh);
+        //    db.SaveChanges();
+        //    List<Giohang> ds = (List<Giohang>)Session["cartSession"];
+        //    string message = "";
+        //    float sum = 0;
+        //    foreach (Giohang item in ds)
+        //    {
+        //        Chi_tiet_don_hang ctdh = new Chi_tiet_don_hang();
+        //        ctdh.ID_Donhang = dh.ID_Donhang;
+        //        ctdh.ID_Sanpham = item.san_Pham.ID_Sanpham;
+        //        ctdh.soluong = item.soluong;
+        //        ctdh.Gia = item.san_Pham.Gia;
+        //        db.Chi_tiet_don_hang.Add(ctdh);
+        //        db.SaveChanges();
+        //        message += "<br/> ID Sản Phẩm: " + item.san_Pham.ID_Sanpham;
+        //        message += "<br/> Tên sản phẩm: " + item.san_Pham.Tensanpham;
+        //        message += "<br/> Số lượng: " + item.soluong;
+        //        message += "<br/> Giá: " + item.san_Pham.Gia;
+        //        message += "<br/> Tông tiền: " + string.Format("{0:0,0 VNĐ}", item.soluong * item.san_Pham.Gia);
+        //        sum += (float)(item.soluong * item.san_Pham.Gia);
+        //        Session["Tong"] = sum;
+        //    }
+        //    message += "<br>  Thành tiền:" + string.Format("{0:0,0 VNĐ}", sum);
+        //    Nguoi_dung nd = db.Nguoi_dung.Find(dh.ID_Nguoidung);
+        //    SendMail(nd.Email, "Đơn hàng vừa đặt từ www.ttn_shop.com", message);
+        //    Session["cartSession"] = null;
+        //    return RedirectToAction("Index", "TTN_Shop");
+        //}
         public void SendMail(string address, string subject, string message)
         {
             string email = "nhacuteeee@gmail.com";

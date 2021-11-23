@@ -1,0 +1,105 @@
+﻿@model IEnumerable<ShopGiay.Models.Chi_tiet_don_hang>
+@using ShopGiay.Models
+@{
+    ViewBag.Title = "Detaildh";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<title>Footwear - Free Bootstrap 4 Template by Colorlib</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="css/animate.css">
+<!-- Icomoon Icon Fonts-->
+<link rel="stylesheet" href="css/icomoon.css">
+<!-- Ion Icon Fonts-->
+<link rel="stylesheet" href="css/ionicons.min.css">
+<!-- Bootstrap  -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<!-- Magnific Popup -->
+<link rel="stylesheet" href="css/magnific-popup.css">
+
+<!-- Flexslider  -->
+<link rel="stylesheet" href="css/flexslider.css">
+
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+<!-- Date Picker -->
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<!-- Flaticons  -->
+<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+<!-- Theme style  -->
+<link rel="stylesheet" href="css/style.css">
+
+<div class="container">
+    <div class="row row-pb-lg">
+        <div class="col-md-12">
+            <div class="product-name d-flex">
+                <div class="one-eight text-center">
+                    <span>STT</span>
+                </div>
+                <div class="one-forth text-left px-5">
+                    <span>Thông tin sản phẩm</span>
+                </div>
+                <div class="one-eight text-center">
+                    <span>Giá</span>
+                </div>
+                <div class="one-eight text-center">
+                    <span>Số lượng</span>
+                </div>
+                <div class="one-eight text-center">
+                    <span>Tổng tiền</span>
+                </div>
+            </div>
+            @{ int stt = 1;}
+            @foreach (var item in Model)
+            {
+                <div class="product-cart d-flex">
+                    
+                    <div class="one-eight text-center">
+                        <div class="display-tc">
+                            <span>@stt @{stt++;} </span>
+                        </div>
+                    </div>
+                    <div class="one-forth">
+                        <img class="product-img" src="~/Asset/images/@foreach (Hinh_anh hh in (List<Hinh_anh>)ViewBag.hinhanh){ if (hh.ID_San_Pham == @item.San_pham.ID_Sanpham) { @hh.Hinhchinh } }" />
+                        <div class="display-tc">
+                            <h3>@item.San_pham.Tensanpham</h3>
+                        </div>
+                    </div>
+                    <div class="one-eight text-center">
+                        <div class="display-tc">
+                            <span>
+                                @{ var price = string.Format("{0:0,0 VĐN}", item.San_pham.Gia);}
+                                @price
+                            </span>
+                        </div>
+                    </div>
+                    <div class="one-eight text-center">
+                        <div class="display-tc">
+                            <span>@item.soluong</span>
+                        </div>
+                    </div>
+                    <div class="one-eight text-center">
+                        <div class="display-tc">
+                            <span>
+                                @{ var tongtien = string.Format("{0:0,0 VĐN}", item.San_pham.Gia * item.soluong);}
+                                @tongtien
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div>

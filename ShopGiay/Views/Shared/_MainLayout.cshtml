@@ -80,17 +80,27 @@
                                                         <a href="@Url.Action("Product","TTN_Shop",new { iddm = dm.ID_Danhmuc },null)">
 
                                                             @dm.Ten_Danhmuc
-                                                            
+
                                                         </a>
                                                     </li>
                                                 }
                                             }
-                                            </ul>
+                                        </ul>
 
                                     </li>
                                 }
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="contact.html">Contact</a></li>
+                                @{
+                                    if (Session["Nguoidung"] != null)
+                                    {
+                                        <li><a href="@Url.Action("Lichsumh","TTN_Shop")">Lịch sử mua hàng</a></li>
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                }
                                 <li class="cart"><a href="@Url.Action("Index","Giohang")"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
                                 <li class="cart"><a href="@Url.Action("Login","Login")"><i class="icon-log-in"></i></a></li>
                             </ul>

@@ -1,0 +1,95 @@
+﻿@model IEnumerable<ShopGiay.Models.Chi_tiet_don_hang>
+@using ShopGiay.Models
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 style="text-align:center;">Chi tiết đơn hàng</h2>
+@{ 
+    var donhang = (Don_hang)ViewBag.dh;
+}
+
+<p>
+    ID Đơn hàng: @donhang.ID_Donhang
+    <br />
+    Ngày đặt hàng: @donhang.Ngay_Dat_hang.Value.ToString("dd/MM/yyyy")
+    <br />
+    Tên khách hàng: @donhang.Nguoi_dung.Ten_Nguoidung
+    <br />
+    Địa chỉ : @donhang.Mota
+    <br />
+    ID nhân viên : @donhang.ID_Nhanvien
+    <br />
+    Trạng thái : @donhang.Trangthai
+    (0: Đang xử lý | 1: Đang giao hàng | 2: Đã thanh toán | 3: Đã hủy)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            STT
+        </th>
+        <th>
+            ID Người dùng
+        </th>
+        <th>
+            ID Sản phẩm
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Giá
+        </th>
+        <th>
+            Số lượng
+        </th>
+
+        <th>
+            Tổng tiền
+        </th>
+    </tr>
+    @{ int stt = 1; double thanhtien = 0;}
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @stt @{ stt++;} 
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Don_hang.ID_Nguoidung)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.San_pham.ID_Sanpham)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.San_pham.Tensanpham)
+    </td>
+    <td>
+        <img src="~/Asset/images/@foreach (Hinh_anh hh in (List<Hinh_anh>)ViewBag.hinhanh) { if (hh.ID_San_Pham == @item.San_pham.ID_Sanpham) { @hh.Hinhchinh } }" width="80px"/>
+    </td>
+    <td>
+        @{ var price = string.Format("{0:0,0 VĐN}", item.San_pham.Gia);}
+        @price
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.soluong)
+    </td>
+    <td>
+        @{ var tongtien = string.Format("{0:0,0 VĐN}",item.San_pham.Gia * item.soluong);}
+        @{ thanhtien = thanhtien + (double)(item.San_pham.Gia * item.soluong);}
+        @tongtien
+    </td>
+</tr>
+}
+    <tr>
+        <td colspan="9" align="right">
+            @{ var sum = string.Format("{0:0,0 VĐN}", thanhtien); }
+            Thành tiền : @sum
+        </td>
+
+    </tr>
+
+</table>

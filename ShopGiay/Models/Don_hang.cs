@@ -29,6 +29,7 @@ namespace ShopGiay.Models
         public string Email_Nguoidung { get; set; }
         public string Mota { get; set; }
         public Nullable<decimal> Tongtien { get; set; }
+        public Nullable<int> ID_Nhanvien { get; set; }
         public Nullable<int> Trangthai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

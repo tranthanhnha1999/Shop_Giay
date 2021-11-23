@@ -165,7 +165,7 @@
                                         @{double money = (double)item.san_Pham.Gia * item.soluong;}
                                         @{var newmoney = string.Format("{0:0,0 VNĐ}", money);}
                                         @{total = total + money;}
-                                        @newmoney
+                                        @newmoney 
                                     </span>
                                 </div>
                             </div>
@@ -177,8 +177,8 @@
                         </div>
 
                     }
-                    <div class="row row-pb-lg" >
-                        <div class="col-md-12" >
+                    <div class="row row-pb-lg">
+                        <div class="col-md-12">
                             <div class="total-wrap" >
                                 <div class="row">
                                     <div class="col-sm-4 text-center">
@@ -193,10 +193,12 @@
                                                     </span>
                                                 </p>
                                             </div>
-
                                         </div>
-                                        <div class="col-sm-4 text-center">
-                                            <a href="@Url.Action("dathang","Giohang")">Đặt mua</a>
+                                        <br />
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <p><a href="@Url.Action("Dathang","Giohang")" class="btn btn-primary">Đặt hàng</a></p>
+                                            </div>
                                         </div>
                                     </div>
                                     

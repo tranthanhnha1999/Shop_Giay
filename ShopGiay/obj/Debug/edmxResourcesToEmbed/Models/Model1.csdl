@@ -34,6 +34,7 @@
     <Property Name="Email_Nguoidung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Mota" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Tongtien" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ID_Nhanvien" Type="Int32" />
     <Property Name="Trangthai" Type="Int32" />
     <NavigationProperty Name="Chi_tiet_don_hang" Relationship="Self.FK_Chi_tiet_don_hang_Don_hang" FromRole="Don_hang" ToRole="Chi_tiet_don_hang" />
     <NavigationProperty Name="Nguoi_dung" Relationship="Self.FK_Don_hang_Nguoi_dung" FromRole="Don_hang" ToRole="Nguoi_dung" />
