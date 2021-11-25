@@ -1,0 +1,60 @@
+﻿@model ShopGiay.Models.Danh_muc
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+<h3 style="color:cornflowerblue">Bạn có chắc muốn xóa sản phẩm này ?</h3>
+<div>
+    <header class="card-header">
+        <p class="card-header-title">
+            <span class="icon"><i class="mdi mdi-ballot"></i></span>
+            Xóa Nhóm danh mục
+        </p>
+    </header>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ten_Danhmuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten_Danhmuc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trangthai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trangthai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nhom_Danh_Muc.Ten_Nhom_Danh_muc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nhom_Danh_Muc.Ten_Nhom_Danh_muc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="field grouped">
+            <div class="control">
+                <button type="submit" class="button green">
+                    Xóa
+                </button>
+            </div>
+            <div class="control">
+                <button type="reset" class="button red">
+                    <a href="@Url.Action("Index", "Danhmuc")">Quay lại</a>
+                </button>
+            </div>
+
+        </div>
+    }
+</div>

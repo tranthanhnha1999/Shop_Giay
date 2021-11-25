@@ -6,33 +6,45 @@
     Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>Index</h2>
+<section class="is-title-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <ul>
+            <li>Admin</li>
+            <li>Sản Phẩm</li>
+        </ul>
+    </div>
+</section>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<section class="is-hero-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <h1 class="title">
+            Sản phẩm
+        </h1>
+        <button class="button light"><a href="@Url.Action("create","AdminSanpham")">Thêm mới</a></button>
+    </div>
+</section>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Tensanpham)
+            Tên sản phẩm
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Mota)
+            Mô tả
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gia)
+           Giá
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Ngaycapnhat)
+            Ngày cập nhật
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Trangthai)
+            Trạng thái
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Danh_muc.ID_Nhom_Danh_Muc)
+            ID Nhóm danh mục
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Khuyen_mai.Ten_giamgia)
+            Giảm giá
         </th>
         <th>
             Hình ảnh
@@ -40,39 +52,40 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tensanpham)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mota)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ngaycapnhat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Trangthai)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Danh_muc.ID_Nhom_Danh_Muc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Khuyen_mai.Ten_giamgia)
-        </td>
-        <td>
-            <img src="~/Asset/images/@foreach (Hinh_anh hh in (List<Hinh_anh>)ViewBag.hinhanh){ if (hh.ID_San_Pham == item.ID_Sanpham) { @hh.Hinhchinh } } " width="150px" class="img-fluid" alt="Free html5 bootstrap 4 template">
-        </td>
-        
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Sanpham }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Sanpham }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Sanpham })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tensanpham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trangthai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Danh_muc.ID_Nhom_Danh_Muc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Khuyen_mai.Ten_giamgia)
+            </td>
+            <td>
+                <img src="~/Asset/images/@foreach (Hinh_anh hh in (List<Hinh_anh>)ViewBag.hinhanh){ if (hh.ID_San_Pham == item.ID_Sanpham) { @hh.Hinhchinh } } " width="150px" class="img-fluid" alt="Free html5 bootstrap 4 template">
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID_Sanpham }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID_Sanpham }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID_Sanpham })
+            </td>
+        </tr>
+    }
 
 </table>

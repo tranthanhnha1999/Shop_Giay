@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ShopGiay.Models.Danh_muc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="is-title-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <ul>
+            <li>Admin</li>
+            <li>Danh mục</li>
+        </ul>
+    </div>
+</section>
+<section class="is-hero-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <h1 class="title">
+            Sản phẩm
+        </h1>
+        <button class="button light"><a href="@Url.Action("Create","Danhmuc")">Thêm mới</a></button>
+    </div>
+</section>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ten_Danhmuc)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Nhom_Danh_Muc.Ten_Nhom_Danh_muc)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ten_Danhmuc)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.Nhom_Danh_Muc.Ten_Nhom_Danh_muc)
+    </td>
+
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID_Danhmuc }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID_Danhmuc }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID_Danhmuc })
+    </td>
+</tr>
+}
+
+</table>

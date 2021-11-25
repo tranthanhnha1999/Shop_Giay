@@ -1,0 +1,43 @@
+﻿@model ShopGiay.Models.Danh_muc
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<div>
+    <header class="card-header">
+        <p class="card-header-title">
+            <span class="icon"><i class="mdi mdi-ballot"></i></span>
+            Chi tiết Danh mục
+        </p>
+    </header>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ten_Danhmuc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ten_Danhmuc)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nhom_Danh_Muc.Ten_Nhom_Danh_muc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nhom_Danh_Muc.Ten_Nhom_Danh_muc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <br />
+    <div class="field grouped">
+        <div class="control">
+            <button type="reset" class="button red">
+                <a href="@Url.Action("Index","Danhmuc")">Quay lại</a>
+            </button>
+        </div>
+    </div>
+</p>

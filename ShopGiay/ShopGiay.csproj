@@ -137,6 +137,8 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminSanphamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DanhmucController.cs" />
+    <Compile Include="Areas\Admin\Controllers\KhachhangController.cs" />
     <Compile Include="Areas\Admin\Controllers\NhomdanhmucController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonhangController.cs" />
     <Compile Include="Controllers\GiohangController.cs" />
@@ -209,6 +211,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\AssetAdmin\css\main.css" />
+    <Content Include="Areas\AssetAdmin\img\justboil-logo.svg" />
+    <Content Include="Areas\AssetAdmin\js\chart.sample.js" />
+    <Content Include="Areas\AssetAdmin\js\chart.sample.min.js" />
+    <Content Include="Areas\AssetAdmin\js\main.js" />
+    <Content Include="Areas\AssetAdmin\js\main.min.js" />
     <Content Include="Asset\css\animate.css" />
     <Content Include="Asset\css\bootstrap-datepicker.css" />
     <Content Include="Asset\css\bootstrap.min.css" />
@@ -318,6 +326,33 @@
     <Content Include="Asset\images\DepA9.jpg" />
     <Content Include="Asset\images\DepA9_1.jpg" />
     <Content Include="Asset\images\DepA9_2.jpg" />
+    <Content Include="Asset\images\DML4_1.jpg" />
+    <Content Include="Asset\images\DMLB1.png" />
+    <Content Include="Asset\images\dmlb10.jpg" />
+    <Content Include="Asset\images\dmlb11.jpg" />
+    <Content Include="Asset\images\DMLB12.jpg" />
+    <Content Include="Asset\images\DMLB13.jpg" />
+    <Content Include="Asset\images\DMLB14.jpeg" />
+    <Content Include="Asset\images\DMLB15.jpg" />
+    <Content Include="Asset\images\DMLB16.jpg" />
+    <Content Include="Asset\images\DMLB17.jpg" />
+    <Content Include="Asset\images\DMLB18.jpg" />
+    <Content Include="Asset\images\DMLB19.jpg" />
+    <Content Include="Asset\images\DMLB2.jpg" />
+    <Content Include="Asset\images\DMLB20.jpg" />
+    <Content Include="Asset\images\DMLB4.jpg" />
+    <Content Include="Asset\images\DMLB4_2.jpg" />
+    <Content Include="Asset\images\DMLB5.jpg" />
+    <Content Include="Asset\images\DMLB5_1.jpg" />
+    <Content Include="Asset\images\DMLB5_2.jpg" />
+    <Content Include="Asset\images\DMLB6.jpg" />
+    <Content Include="Asset\images\DMLB6_1.jpg" />
+    <Content Include="Asset\images\DMLB6_2.jpg" />
+    <Content Include="Asset\images\DMLB7.jpg" />
+    <Content Include="Asset\images\DMLB7_1.jpg" />
+    <Content Include="Asset\images\DMLB7_2.jpg" />
+    <Content Include="Asset\images\DMLB_8.jpg" />
+    <Content Include="Asset\images\DMLB_9.jpg" />
     <Content Include="Asset\images\DN1.jpg" />
     <Content Include="Asset\images\DN10.jpg" />
     <Content Include="Asset\images\DN10_1.jpg" />
@@ -432,6 +467,8 @@
     <Content Include="Asset\images\GiayA9_1.jpg" />
     <Content Include="Asset\images\GiayA9_2.jpg" />
     <Content Include="Asset\images\GIAYSLIDE.jpg" />
+    <Content Include="Asset\images\GMLB1.png" />
+    <Content Include="Asset\images\GMLB1_1.jpeg" />
     <Content Include="Asset\images\GN1.jpg" />
     <Content Include="Asset\images\GN10.jpeg" />
     <Content Include="Asset\images\GN10_1.jpeg" />
@@ -502,6 +539,7 @@
     <Content Include="Asset\images\loader.gif" />
     <Content Include="Asset\images\loc.png" />
     <Content Include="Asset\images\men.jpg" />
+    <Content Include="Asset\images\MLB1_3.jpeg" />
     <Content Include="Asset\images\person1.jpg" />
     <Content Include="Asset\images\person2.jpg" />
     <Content Include="Asset\images\person3.jpg" />
@@ -1614,6 +1652,13 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="Areas\Admin\Views\Donhang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Danhmuc\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Danhmuc\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Danhmuc\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Danhmuc\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Danhmuc\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Khachhang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Khachhang\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

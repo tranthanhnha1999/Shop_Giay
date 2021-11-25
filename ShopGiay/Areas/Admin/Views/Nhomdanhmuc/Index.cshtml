@@ -4,31 +4,53 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
 }
+<section class="is-title-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <ul>
+            <li>Admin</li>
+            <li>Nhóm danh mục</li>
+        </ul>
+    </div>
+</section>
 
-<h2>Index</h2>
+<section class="is-hero-bar">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <h1 class="title">
+            Nhóm danh mục
+        </h1>
+        <button class="button light" ><a href="@Url.Action("create","Nhomdanhmuc")">Thêm mới</a></button>
+    </div>
+</section>
 
-<p>
-    @Html.ActionLink("Create New", "create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Ten_Nhom_Danh_muc)
-        </th>
-        <th></th>
-    </tr>
+<section class="section main-section">
+    <div class="card has-table">
+        
+        <div class="card-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên nhóm danh mục</th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tbody>
+                        <tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ten_Nhom_Danh_muc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_Nhom_Danh_muc }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_Nhom_Danh_muc }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_Nhom_Danh_muc })
-        </td>
-    </tr>
-}
+                            <td data-label="City">@Html.DisplayFor(modelItem => item.Ten_Nhom_Danh_muc)</td>
 
-</table>
+                            <td class="actions-cell">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID_Nhom_Danh_muc }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ID_Nhom_Danh_muc }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID_Nhom_Danh_muc })
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+                </table>
+        </div>
+    </div>
+</section>
+
+
+

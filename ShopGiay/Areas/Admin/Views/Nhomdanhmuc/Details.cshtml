@@ -5,23 +5,38 @@
     Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>Details</h2>
 
 <div>
-    <h4>Nhom_Danh_Muc</h4>
+    <header class="card-header">
+        <p class="card-header-title">
+            <span class="icon"><i class="mdi mdi-ballot"></i></span>
+            Chi tiết Nhóm danh mục
+        </p>
+    </header>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Ten_Nhom_Danh_muc)
+            Tên nhóm danh mục
         </dt>
 
-        <dd>
+        <dd style="color:cornflowerblue">
             @Html.DisplayFor(model => model.Ten_Nhom_Danh_muc)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_Nhom_Danh_muc }) |
-    @Html.ActionLink("Back to List", "Index")
+    <br />
+    <div class="field grouped">
+        <div class="control">
+            <button type="reset" class="button green">
+                <a href="@Url.Action("Edit","Nhomdanhmuc")">Sửa</a>
+            </button>
+        </div>
+        <div class="control">
+            <button type="reset" class="button red">
+                <a href="@Url.Action("Index","Nhomdanhmuc")">Quay lại</a>
+            </button>
+        </div>
+    </div>
 </p>

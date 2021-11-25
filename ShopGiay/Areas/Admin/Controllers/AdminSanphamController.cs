@@ -39,8 +39,8 @@ namespace ShopGiay.Areas.Admin.Controllers
                 san_Pham.Ngaycapnhat = adminSanpham.san_Pham.Ngaycapnhat;
                 san_Pham.Mota = adminSanpham.san_Pham.Mota;
                 san_Pham.Gia = adminSanpham.san_Pham.Gia;
-                san_Pham.ID_Khuyenmai = adminSanpham.san_Pham.ID_Khuyenmai;
-                san_Pham.ID_Danh_Muc = adminSanpham.san_Pham.ID_Danh_Muc;
+                san_Pham.ID_Khuyenmai = 1;
+                san_Pham.ID_Danh_Muc = "9";
                 db.San_pham.Add(san_Pham);
                 db.SaveChanges();
                 Hinh_anh ha = new Hinh_anh();
