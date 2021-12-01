@@ -1,7 +1,4 @@
 ﻿@using ShopGiay.Models
-@{
-    ViewBag.Title = "_MainLayout";
-}
 
 <!DOCTYPE HTML>
 <html>
@@ -52,9 +49,9 @@
                             <div id="colorlib-logo"><a href="index.html">TTN_Shop</a></div>
                         </div>
                         <div class="col-sm-5 col-md-3">
-                            <form action="#" class="search-wrap">
+                            <form action="@Url.Action("Search","TTN_Shop")" class="search-wrap" method="post">
                                 <div class="form-group">
-                                    <input type="search" class="form-control search" placeholder="Tìm kiếm">
+                                    <input type="search" name="search_param" class="form-control search" placeholder="tìm kiếm">
                                     <button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
                                 </div>
                             </form>

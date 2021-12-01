@@ -5,6 +5,37 @@
     Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
 }
 
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+        margin: auto;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        #customers tr:nth-child(even) {
+            background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #2a9fd6;
+            color: white;
+            text-align: center;
+        }
+</style>
 <section class="is-title-bar">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
         <ul>
@@ -13,7 +44,8 @@
         </ul>
     </div>
 </section>
-<table class="table">
+<table id="customers">
+
     <tr>
         <th>
             ID Đơn hàng
@@ -39,49 +71,36 @@
         <th>
             Trạng thái
         </th>
-        <th></th>
+        <th>Thao tác</th>
     </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID_Donhang</td>
+            <td>@item.ID_Nguoidung</td>
+            <td>@item.Ten_Nguoidung</td>
+            <td>@item.Email_Nguoidung</td>
+            <td>@item.Ngay_Dat_hang</td>
+            <td>@item.Mota</td>
+            <td>@item.ID_Nhanvien</td>
+            <td>@item.Trangthai</td>
+            <td>
+                @{if (item.Trangthai >= 2)
+                    {
+                    }
+                    else
+                    {
+                                <a href="@Url.Action("Edit","Donhang",new { id =item.ID_Donhang})"><img src="~/Asset/images/edit .png" /></a>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.ID_Donhang)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ID_Nguoidung)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Ten_Nguoidung)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Email_Nguoidung)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Ngay_Dat_hang)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Mota)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ID_Nhanvien)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Trangthai)
-    </td>
-    <td>
-        @{if (item.Trangthai >= 2)
-            {
-            }
-            else
-            {
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_Donhang }) 
-                                                                                   
-            }
-        }
-        |
-        @Html.ActionLink("Details", "Details", new { id = item.ID_Donhang })
-    </td>
-</tr>
-}
+                    }
+                }
+                |
+            <a href="@Url.Action("Details","Donhang",new { id =item.ID_Donhang})"><img src="~/Asset/images/loupe.png" /></a>
+                
+            </td>
+        </tr>
+
+    }
 
 </table>
+

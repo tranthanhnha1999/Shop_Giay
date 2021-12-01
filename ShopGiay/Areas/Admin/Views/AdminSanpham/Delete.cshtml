@@ -1,0 +1,84 @@
+﻿@model ShopGiay.Models.San_pham
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        padding: 20px;
+    }
+</style>
+
+<div style="width:50%; margin:auto;">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-horizontal" style="margin:auto;">
+            <h3 style="color:cornflowerblue">Bạn có chắc muốn xóa Danh mục này ?</h3>
+            <header class="card-header">
+                <p class="card-header-title" style="text-align:center">
+                    <span class="icon"><i class="mdi mdi-ballot"></i></span>
+                    Xóa Sản phẩm
+                </p>
+            </header>
+            <hr />
+            <div>
+                <form action="#" style="width:50%;">
+                    <label for="fname">ID Sản phẩm</label>
+                    <input type="text" id="fname" name="ID_Sanpham" placeholder="ID Sản phẩm ..." required value="@Model.ID_Sanpham" readonly>
+                    <label for="Danhmuc">Tên Sản phẩm</label>
+                    <input type="text" id="fname" name="Tensanpham" placeholder="Tên sản phẩm ..." required value="@Model.Tensanpham" readonly>
+                    <label for="lname">Gía</label>
+                    <input type="text" id="lname" name="Gia" placeholder="Giá.." required value="@Model.Gia" readonly>
+
+                    <br />
+                    <div class="field grouped">
+                        <div class="control">
+                            <button type="submit" class="button green">
+                                Xóa
+                            </button>
+                        </div>
+                        <div class="control">
+                            <button type="reset" class="button red">
+                                <a href="@Url.Action("Index","Danhmuc")">Quay lại</a>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    }
+</div>
+

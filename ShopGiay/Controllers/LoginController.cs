@@ -15,7 +15,7 @@ namespace ShopGiay.Controllers
         {
             ViewBag.vaitro = new SelectList(db.Vai_tro.ToList(),"ID_Vai_tro", "Ten_vai_tro");
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
-            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
             return View();
         }
         [HttpPost]
@@ -23,7 +23,7 @@ namespace ShopGiay.Controllers
         {
             ViewBag.vaitro = new SelectList(db.Vai_tro.ToList(), "ID_Vai_tro", "Ten_vai_tro");
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
-            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
             var checkemail = db.Nguoi_dung.FirstOrDefault(p => p.Email == nguoi_Dung.Email);
             var checktaikhoan = db.Nguoi_dung.FirstOrDefault(p => p.Tai_Khoan == nguoi_Dung.Tai_Khoan);
             if (ModelState.IsValid)
@@ -70,14 +70,14 @@ namespace ShopGiay.Controllers
         public ActionResult Login()
         {
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
-            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
             return View();
         }
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
-            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
             string pass = Encode.EncodeMd5(password);
             var ketqua = db.Nguoi_dung.Where(p => p.Tai_Khoan.Equals(username) && p.Mat_Khau.Equals(pass)).FirstOrDefault();
             if(ketqua != null)

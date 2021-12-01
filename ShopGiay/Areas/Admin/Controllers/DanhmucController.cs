@@ -28,23 +28,34 @@ namespace ShopGiay.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(Danh_muc danh_Muc)
         {
-            var id_dm = db.Danh_muc.FirstOrDefault(p => p.ID_Danhmuc == danh_Muc.ID_Danhmuc);
-            if (ModelState.IsValid)
+            try
             {
-                if(id_dm == null)
+                ViewBag.id_ndm = new SelectList(db.Nhom_Danh_Muc.ToList(), "ID_Nhom_Danh_muc", "Ten_Nhom_Danh_muc");
+                var id_dm = db.Danh_muc.FirstOrDefault(p => p.ID_Danhmuc == danh_Muc.ID_Danhmuc);
+                if (ModelState.IsValid)
                 {
-                    db.Danh_muc.Add(danh_Muc);
-                    db.SaveChanges();
-                    return RedirectToAction("Index","Danhmuc");
-                }
-                else
-                {
-                    ViewBag.checkiddm = "ID Danh mục đã tồn tại";
-                    return View();
-                }
+                    if (id_dm != null)
+                    {
+                        ViewBag.checkiddm = "ID Danh mục đã tồn tại";
+                        return View();
+                        
+                    }
+                    else
+                    {
+                        db.Configuration.ValidateOnSaveEnabled = false;
+                        db.Danh_muc.Add(danh_Muc);
+                        db.SaveChanges();
+                        return RedirectToAction("Index", "Danhmuc");
+                    }
 
+                }
+                return View();
             }
-            return View();
+            catch
+            {
+                return View();
+            }
+            
 
         }
         public ActionResult Details(string id)
@@ -63,6 +74,7 @@ namespace ShopGiay.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.Entry(danh_Muc).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index", "Danhmuc");
@@ -73,13 +85,13 @@ namespace ShopGiay.Areas.Admin.Controllers
         public ActionResult Delete(string id)
         {
             var model = db.Danh_muc.Find(id);
-            return View();
+            return View(model);
         }
         [HttpPost, ActionName("Delete")]
         public ActionResult ComfirmDelete(string id)
         {
-            var item = db.Danh_muc.Find(id);
-            db.Danh_muc.Remove(item);
+            Danh_muc item = db.Danh_muc.Find(id);
+            item.Trangthai = 1;
             db.SaveChanges();
             return RedirectToAction("Index", "Danhmuc");
         }

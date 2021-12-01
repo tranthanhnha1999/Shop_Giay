@@ -1,0 +1,80 @@
+﻿@model PagedList.IPagedList<ShopGiay.Models.San_pham>
+@using PagedList.Mvc;
+@using ShopGiay.Models;
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<hr />
+<div class="breadcrumbs-two">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumbs-img" style="background-image: url(/Asset/images/Giay.jpeg);">
+                    <h2>Tất cả sản phẩm </h2>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="bread"><span><a href="@Url.Action("Index","TTN_Shop")">Home</a></span> / <span>Sản Phẩm</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="colorlib-product">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
+                <h2>Tất cả sản phẩm</h2>
+            </div>
+        </div>
+        <div class="row row-pb-md">
+            <div class="row row-pb-md">
+                @{ string id_dm = "";}
+                @{ string id_ndm = "";}
+                @foreach (var item in ViewBag.San_Pham)
+                {
+                    id_dm = ViewBag.id;
+                    id_ndm = ViewBag.idndm;
+                    <div class="col-md-3 col-lg-3 mb-4 text-center">
+
+                        <div class="product-entry border">
+                            <a href="@Url.Action("Details", new { id = @item.ID_Sanpham })" class="prod-img">
+                                <img src="~/Asset/images/@foreach (Hinh_anh hh in (List<Hinh_anh>)ViewBag.hinhanh){ if (hh.ID_San_Pham == item.ID_Sanpham) { @hh.Hinhchinh } } " class="img-fluid" alt="Free html5 bootstrap 4 template">
+                            </a>
+                            <div class="desc" style="color:aqua">
+                                <h2><a href="@Url.Action("Details",new { id = @item.ID_Sanpham})">@item.Tensanpham</a></h2>
+                                <span class="price" style="color:hotpink">
+                                    @{ var gia = string.Format("{0:0,0 VĐN}", item.Gia);}
+                                    @gia
+                                </span>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                }
+            </div>
+
+        </div>
+       @*<div class="row " style="justify-content:center">
+                <div class="text-center">
+                    <div class="block-27 " >
+                        <ul class="mx-auto">
+                            @Html.PagedListPager(Model, page => Url.Action("Product", new { page , iddm = id_dm , idndm = id_ndm }))
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+</div>
+
+

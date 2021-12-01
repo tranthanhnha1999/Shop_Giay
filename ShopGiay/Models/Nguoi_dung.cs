@@ -11,7 +11,6 @@ namespace ShopGiay.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
 
     public partial class Nguoi_dung
     {
@@ -23,26 +22,14 @@ namespace ShopGiay.Models
         }
 
         public int ID_Nguoidung { get; set; }
-        [Required(ErrorMessage = " Vui lòng nhập Họ và tên !!")]
         public string Ten_Nguoidung { get; set; }
         public Nullable<System.DateTime> Ngay_sinh { get; set; }
-        public int ID_vaitro { get; set; }
+        public Nullable<int> ID_vaitro { get; set; }
         public string Hinh_anh { get; set; }
-        [Required(ErrorMessage = " Vui lòng nhập Địa chỉ !!")]
         public string Dia_chi { get; set; }
-        [RegularExpression(@"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
-            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$", ErrorMessage = " Đây không phải là Email !!")]
-        [Required(ErrorMessage = " Vui lòng nhập Email !!")]
-
         public string Email { get; set; }
-        [Required(ErrorMessage = " Vui lòng nhập Số điện thoại !!")]
-        [RegularExpression(@"^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$", ErrorMessage = "Đây không phải là số điện thoại")]
         public Nullable<int> So_DT { get; set; }
-        [Required(ErrorMessage = " Vui lòng nhập tài khoản !!")]
         public string Tai_Khoan { get; set; }
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$", ErrorMessage = "Mật khẩu phải có ít nhất 8 ký tự,có chữ Hoa,thường và số")]
-        [Required(ErrorMessage = " Vui lòng nhập mật khẩu !!")]
-        [DataType(DataType.Password)]
         public string Mat_Khau { get; set; }
         public Nullable<int> Trangthai { get; set; }
 

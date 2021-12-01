@@ -80,12 +80,12 @@
             <PropertyRef Name="ID_Nguoidung" />
           </Key>
           <Property Name="ID_Nguoidung" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Ten_Nguoidung" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Ten_Nguoidung" Type="nvarchar" MaxLength="250" />
           <Property Name="Ngay_sinh" Type="smalldatetime" />
-          <Property Name="ID_vaitro" Type="int" Nullable="false" />
+          <Property Name="ID_vaitro" Type="int" />
           <Property Name="Hinh_anh" Type="nvarchar" MaxLength="250" />
           <Property Name="Dia_chi" Type="nvarchar" MaxLength="250" />
-          <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
           <Property Name="So_DT" Type="int" />
           <Property Name="Tai_Khoan" Type="nvarchar" MaxLength="150" />
           <Property Name="Mat_Khau" Type="nvarchar" MaxLength="150" />
@@ -233,7 +233,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Nguoi_dung_Vai_tro">
-          <End Role="Vai_tro" Type="Self.Vai_tro" Multiplicity="1" />
+          <End Role="Vai_tro" Type="Self.Vai_tro" Multiplicity="0..1" />
           <End Role="Nguoi_dung" Type="Self.Nguoi_dung" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vai_tro">
@@ -459,12 +459,12 @@
             <PropertyRef Name="ID_Nguoidung" />
           </Key>
           <Property Name="ID_Nguoidung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Ten_Nguoidung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ten_Nguoidung" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Ngay_sinh" Type="DateTime" Precision="0" />
-          <Property Name="ID_vaitro" Type="Int32" Nullable="false" />
+          <Property Name="ID_vaitro" Type="Int32" />
           <Property Name="Hinh_anh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Dia_chi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="So_DT" Type="Int32" />
           <Property Name="Tai_Khoan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Mat_Khau" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
@@ -673,7 +673,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Nguoi_dung_Vai_tro">
-          <End Role="Vai_tro" Type="Self.Vai_tro" Multiplicity="1" />
+          <End Role="Vai_tro" Type="Self.Vai_tro" Multiplicity="0..1" />
           <End Role="Nguoi_dung" Type="Self.Nguoi_dung" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Vai_tro">

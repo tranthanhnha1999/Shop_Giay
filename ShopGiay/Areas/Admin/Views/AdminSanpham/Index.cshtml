@@ -5,7 +5,37 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
 }
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 80%;
+        margin: auto;
+    }
 
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        #customers tr:nth-child(even) {
+            background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #2a9fd6;
+            color: white;
+            text-align: center;
+        }
+</style>
 <section class="is-title-bar">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
         <ul>
@@ -14,7 +44,6 @@
         </ul>
     </div>
 </section>
-
 <section class="is-hero-bar">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
         <h1 class="title">
@@ -23,7 +52,8 @@
         <button class="button light"><a href="@Url.Action("create","AdminSanpham")">Thêm mới</a></button>
     </div>
 </section>
-<table class="table">
+<table id="customers">
+
     <tr>
         <th>
             Tên sản phẩm
@@ -32,7 +62,7 @@
             Mô tả
         </th>
         <th>
-           Giá
+            Giá
         </th>
         <th>
             Ngày cập nhật
@@ -49,43 +79,28 @@
         <th>
             Hình ảnh
         </th>
-        <th></th>
+        <th>Thao tác</th>
     </tr>
-
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tensanpham)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mota)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gia)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ngaycapnhat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Trangthai)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Danh_muc.ID_Nhom_Danh_Muc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Khuyen_mai.Ten_giamgia)
-            </td>
+            <td>@item.Tensanpham</td>
+            <td>@item.Mota</td>
+            <td>@item.Gia</td>
+            <td>@item.Ngaycapnhat</td>
+            <td>@item.Trangthai</td>
+            <td>@item.Danh_muc.ID_Nhom_Danh_Muc</td>
+            <td>@item.Khuyen_mai.Ten_giamgia</td>
             <td>
                 <img src="~/Asset/images/@foreach (Hinh_anh hh in (List<Hinh_anh>)ViewBag.hinhanh){ if (hh.ID_San_Pham == item.ID_Sanpham) { @hh.Hinhchinh } } " width="150px" class="img-fluid" alt="Free html5 bootstrap 4 template">
             </td>
-
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_Sanpham }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID_Sanpham }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID_Sanpham })
+                <a href="@Url.Action("Edit","AdminSanpham",new { id =item.ID_Sanpham})"><img src="~/Asset/images/edit .png" /></a>
+                <a href="@Url.Action("Details","AdminSanpham",new { id =item.ID_Sanpham})"><img src="~/Asset/images/loupe.png" /></a>
+                <a href="@Url.Action("Delete","AdminSanpham",new { id =item.ID_Sanpham})"><img src="~/Asset/images/delete .png" /></a>
             </td>
         </tr>
+
     }
 
 </table>

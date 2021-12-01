@@ -92,7 +92,7 @@
                         <h4 class="fa fa-user icon"> Họ và tên :</h4>
                     </div>
                     <div class="form">
-                        @Html.EditorFor(model => model.Ten_Nguoidung, new { htmlAttributes = new { @class = "input-field" } })
+                        @Html.EditorFor(model => model.Ten_Nguoidung, new { htmlAttributes = new { required = "required" } })
 
                     </div>
 
@@ -105,7 +105,7 @@
                         <h4 class="form fa fa-birthday-cake icon "> Ngày Sinh :</h4>
                     </div>
                     <div class="form">
-                        @Html.EditorFor(model => model.Ngay_sinh, new { htmlAttributes = new { @class = "input-field", Type = "date" } })
+                        @Html.EditorFor(model => model.Ngay_sinh, new { htmlAttributes = new { required = "required", Type = "date" } })
 
                     </div>
 
@@ -113,21 +113,13 @@
                 <div>
                     <p>@Html.ValidationMessageFor(model => model.Ngay_sinh, "", new { @class = "text-danger" })</p>
                 </div>
-                <div class="input-container">
-                    <div style="text-align:center;" class="col-6">
-                        <h4 class="fa fa-image icon"> Hình ảnh :</h4>
-                    </div>
-                    <div class="form">
-                        @Html.EditorFor(model => model.Hinh_anh, new { htmlAttributes = new { @class = "input-field" } })
-                        @Html.ValidationMessageFor(model => model.Hinh_anh, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+
                 <div class="input-container">
                     <div style="text-align:center;" class="col-6">
                         <h4 class="fa fa-address-book icon"> Đia chỉ :</h4>
                     </div>
                     <div class="form">
-                        @Html.EditorFor(model => model.Dia_chi, new { htmlAttributes = new { @class = "input-field" } })
+                        @Html.EditorFor(model => model.Dia_chi, new { htmlAttributes = new { required = "required" } })
 
                     </div>
 
@@ -140,7 +132,13 @@
                         <h4 class="fa fa-envelope icon"> Email :</h4>
                     </div>
                     <div class="form">
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input-field" } })
+                        
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new {
+                       pattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                                                                            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",
+                       required = "required",
+                       title = "Đây không phải là email vui lòng nhập lại"
+                   } })
 
                     </div>
 
@@ -162,7 +160,7 @@
                         <h4 class="fa fa-phone-square icon"> Số điện thoại :</h4>
                     </div>
                     <div style="text-align:center;" class="form">
-                        @Html.EditorFor(model => model.So_DT, new { htmlAttributes = new { @class = "input-field" } })
+                        @Html.EditorFor(model => model.So_DT, new { htmlAttributes = new { pattern ="^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$", required = "required", title = "Vui lòng nhập đúng số điện thoại, đủ 10 ký tự." } })
 
                     </div>
 
@@ -175,7 +173,7 @@
                         <h4 class="fa fa-user icon"> Tài Khoản :</h4>
                     </div>
                     <div class="form">
-                        @Html.EditorFor(model => model.Tai_Khoan, new { htmlAttributes = new { @class = "input-field" } })
+                        @Html.EditorFor(model => model.Tai_Khoan, new { htmlAttributes = new { required = "required" } })
 
                     </div>
 
@@ -197,7 +195,8 @@
                         <h4 class="fa fa-key icon"> Mật khẩu :</h4>
                     </div>
                     <div class="form">
-                        @Html.EditorFor(model => model.Mat_Khau, new { htmlAttributes = new { @class = "input-field" } })
+                        <input type="password" id="Mat_Khau" name="Mat_Khau" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Vui lòng nhập đủ 8 ký tự ,Viết hoa , số ,viết thường" />
+                        @*@Html.EditorFor(model => model.Mat_Khau, new { htmlAttributes = new { required = "required" } })*@
                     </div>
 
                 </div>

@@ -13,11 +13,11 @@ namespace ShopGiay.Controllers
         public ShopBanGiayEntities db = new ShopBanGiayEntities();
         public IEnumerable<San_pham> AllListPaging(int page, int pageSize)
         {
-            return db.San_pham.OrderByDescending(x => x.Ngaycapnhat).ToPagedList(page, pageSize);
+            return db.San_pham.OrderByDescending(x => x.Ngaycapnhat).Where(x=>x.Trangthai != 1).ToPagedList(page, pageSize);
         }
         public IEnumerable<San_pham> AllListPagingByDanhmuc(int page, int pageSize, string iddm)
         {
-            return db.San_pham.OrderByDescending(x => x.Ngaycapnhat).Where(x => x.ID_Danh_Muc.Equals(iddm)).ToPagedList(page, pageSize);
+            return db.San_pham.OrderByDescending(x => x.Ngaycapnhat).Where(x => x.ID_Danh_Muc.Equals(iddm) && x.Trangthai != 1).ToPagedList(page, pageSize);
         }
         public IEnumerable<San_pham> AllListPagingByNhomdanhmuc(int page, int pageSize, string idndm)
         {
@@ -25,7 +25,7 @@ namespace ShopGiay.Controllers
             var model = (from s in db.San_pham
                          join d in db.Danh_muc on s.ID_Danh_Muc equals d.ID_Danhmuc
                          join n in db.Nhom_Danh_Muc on d.ID_Nhom_Danh_Muc equals idndm
-                         select s).Distinct().OrderByDescending(x => x.Ngaycapnhat).ToPagedList(page, pageSize);
+                         select s).Distinct().OrderByDescending(x => x.Ngaycapnhat).Where(p=>p.Trangthai != 1).ToPagedList(page, pageSize);
 
             return model;
         }
@@ -33,10 +33,10 @@ namespace ShopGiay.Controllers
         public ActionResult Index()
         {
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
-            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p=>p.Trangthai!=1).ToList();
             ViewBag.slide = db.Slides.ToList();
             ViewBag.hinhanh = db.Hinh_anh.ToList();
-            var model = (from S in db.San_pham orderby S.Ngaycapnhat descending select S).Take(12);
+            var model = (from S in db.San_pham orderby S.Ngaycapnhat descending where S.Trangthai != 1 select S).Take(12);
             
             return View(model);
         }
@@ -44,7 +44,7 @@ namespace ShopGiay.Controllers
         {
             
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
-            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
             ViewBag.hinhanh = db.Hinh_anh.ToList();
             if (iddm != null)
             {
@@ -69,7 +69,7 @@ namespace ShopGiay.Controllers
         public ActionResult Details(int id)
         {
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
-            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
             ViewBag.hinhanh = db.Hinh_anh.ToList();
             var model = db.San_pham.Find(id);
 
@@ -78,7 +78,7 @@ namespace ShopGiay.Controllers
         public ActionResult Lichsumh()
         {
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
-            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
             ViewBag.hinhanh = db.Hinh_anh.ToList();
             int id_user = (int)Session["Nguoidung"];
             var models = db.Don_hang.Where(p => p.ID_Nguoidung == id_user).OrderBy(p => p.Ngay_Dat_hang);
@@ -88,10 +88,26 @@ namespace ShopGiay.Controllers
         {
             ViewBag.dh = db.Don_hang.Find(id);
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
-            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
             ViewBag.hinhanh = db.Hinh_anh.ToList();
             var model = db.Chi_tiet_don_hang.Where(p => p.ID_Donhang == id).ToList();
             return View(model);
+        }
+        public ActionResult Search(String search_param)
+        {
+            ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
+            ViewBag.hinhanh = db.Hinh_anh.ToList();
+            try
+            {
+                int id = Int32.Parse(search_param);
+                ViewBag.San_Pham = db.San_pham.Where(x => x.ID_Sanpham == id).ToList();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.San_Pham = db.San_pham.Where(x => x.Tensanpham.Contains(search_param)).ToList();
+            };
+            return View("Search");
         }
     }
 }

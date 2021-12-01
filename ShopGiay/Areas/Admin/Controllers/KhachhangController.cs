@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,20 +23,45 @@ namespace ShopGiay.Areas.Admin.Controllers
         {
             if (Session["Admin"] == null)
                 return Redirect("https://localhost:44316/Login/Login");
-            ViewBag.vaitro = new SelectList(db.Vai_tro.ToList(), "ID_Vai_tro", "Ten_vai_tro");
+           
             var model = db.Nguoi_dung.Find(id);
+            ViewBag.vaitro = new SelectList(db.Vai_tro.ToList(), "ID_Vai_tro", "Ten_vai_tro", model.ID_vaitro);
             return View(model);
         }
-        [HttpPost, ActionName("Edit")]
+        [HttpPost]
         public ActionResult Edit(Nguoi_dung nguoi_Dung)
         {
+            
             if (ModelState.IsValid)
+            {
+                db.Entry(nguoi_Dung).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index", "Khachhang");
+            }
+            ViewBag.vaitro = new SelectList(db.Vai_tro.ToList(), "ID_Vai_tro", "Ten_vai_tro", nguoi_Dung.ID_vaitro);
+            return View(nguoi_Dung);
+        }
+        public ActionResult EditTrangThai(int id)
+        {
+            var model = db.Nguoi_dung.Find(id);
+            ViewBag.vaitro = new SelectList(db.Vai_tro.ToList(), "ID_Vai_tro", "Ten_vai_tro", model.ID_vaitro);
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult EditTrangThai(Nguoi_dung nguoi_Dung)
+        {
+            ViewBag.vaitro = new SelectList(db.Vai_tro.ToList(), "ID_Vai_tro", "Ten_vai_tro", nguoi_Dung.ID_vaitro);
+            try
             {
                 db.Entry(nguoi_Dung).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index", "Khachhang");
             }
-            return RedirectToAction("Edit", "Khachhang");
+            catch (Exception)
+            {
+                ModelState.AddModelError("", "Chỉnh sửa không thành công");
+                return View(nguoi_Dung);
+            }
         }
     }
 }

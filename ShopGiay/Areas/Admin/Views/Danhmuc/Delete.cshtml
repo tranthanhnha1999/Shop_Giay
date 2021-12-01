@@ -4,55 +4,76 @@
     ViewBag.Title = "Delete";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
 }
-<h3 style="color:cornflowerblue">Bạn có chắc muốn xóa sản phẩm này ?</h3>
-<div>
-    <header class="card-header">
-        <p class="card-header-title">
-            <span class="icon"><i class="mdi mdi-ballot"></i></span>
-            Xóa Nhóm danh mục
-        </p>
-    </header>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Ten_Danhmuc)
-        </dt>
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
 
-        <dd>
-            @Html.DisplayFor(model => model.Ten_Danhmuc)
-        </dd>
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Trangthai)
-        </dt>
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.Trangthai)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nhom_Danh_Muc.Ten_Nhom_Danh_muc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nhom_Danh_Muc.Ten_Nhom_Danh_muc)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    div {
+        border-radius: 5px;
+        padding: 20px;
+    }
+</style>
+<div style="width:50%; margin:auto;">
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="field grouped">
-            <div class="control">
-                <button type="submit" class="button green">
-                    Xóa
-                </button>
-            </div>
-            <div class="control">
-                <button type="reset" class="button red">
-                    <a href="@Url.Action("Index", "Danhmuc")">Quay lại</a>
-                </button>
+
+        <div class="form-horizontal" style="margin:auto;">
+            <h3 style="color:cornflowerblue">Bạn có chắc muốn xóa Danh mục này ?</h3>
+            <header class="card-header">
+                <p class="card-header-title" style="text-align:center">
+                    <span class="icon"><i class="mdi mdi-ballot"></i></span>
+                    Xóa Danh mục
+                </p>
+            </header>
+            <hr />
+            <div>
+                <form action="#" style="width:50%;">
+                    <label for="fname">ID Nhóm Danh mục</label>
+                    <input type="text" id="fname" name="ID_Danhmuc" placeholder="ID Danh mục ..." required value="@Model.ID_Danhmuc" readonly>
+                    <label for="Danhmuc">Nhóm danh mục</label>
+                    <input type="text" id="fname" name="Ten_Nhom_Danh_muc" placeholder="ID Danh mục ..." required value="@Model.Nhom_Danh_Muc.Ten_Nhom_Danh_muc" readonly>
+                    <label for="lname">Tên Danh mục</label>
+                    <input type="text" id="lname" name="Ten_Danhmuc" placeholder="Tên Danh mục.." required value="@Model.Ten_Danhmuc" readonly>
+
+                    <br />
+                    <div class="field grouped">
+                        <div class="control">
+                            <button type="submit" class="button green">
+                                Xóa
+                            </button>
+                        </div>
+                        <div class="control">
+                            <button type="reset" class="button red">
+                                <a href="@Url.Action("Index","Danhmuc")">Quay lại</a>
+                            </button>
+                        </div>
+                    </div>
+                    
+                </form>
             </div>
 
         </div>

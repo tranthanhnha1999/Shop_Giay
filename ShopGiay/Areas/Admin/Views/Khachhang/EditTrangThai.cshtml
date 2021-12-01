@@ -1,0 +1,156 @@
+﻿@model ShopGiay.Models.Nguoi_dung
+@{
+    ViewBag.Title = "EditTrangThai";
+    Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
+}
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    div {
+        border-radius: 5px;
+        padding: 20px;
+    }
+</style>
+<div style="width: 50%; margin: auto; background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <header class="card-header">
+            <p class="card-header-title" style="text-align:center">
+                <span class="icon"><i class="mdi mdi-ballot"></i></span>
+                Sửa Người dùng
+            </p>
+        </header>
+        <hr />
+        <div class="form-group" hidden>
+            @Html.LabelFor(model => model.ID_Nguoidung, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ID_Nguoidung, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ID_Nguoidung, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ten_Nguoidung, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ten_Nguoidung, new { htmlAttributes = new { required = "required" } })
+                @Html.ValidationMessageFor(model => model.Ten_Nguoidung, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ngay_sinh, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ngay_sinh, new { htmlAttributes = new { required = "required", Type = "date", @Value = Model.Ngay_sinh.Value.ToString("yyyy-MM-dd") } })
+                @Html.ValidationMessageFor(model => model.Ngay_sinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.So_DT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.So_DT, new { htmlAttributes = new { pattern = "^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$", required = "required", title = "Vui lòng nhập đúng số điện thoại, đủ 10 ký tự." } })
+                @Html.ValidationMessageFor(model => model.So_DT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ID_vaitro, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ID_vaitro", (IEnumerable<SelectListItem>)ViewBag.vaitro, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ID_vaitro, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dia_chi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dia_chi, new { htmlAttributes = new { required = "required" } })
+                @Html.ValidationMessageFor(model => model.Dia_chi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new
+                {
+                    htmlAttributes = new
+                    {
+                           pattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                                                                                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$",
+                           required = "required",
+                           title = "Đây không phải là email vui lòng nhập lại"
+                       }
+                })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group" hidden>
+            @Html.LabelFor(model => model.Tai_Khoan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tai_Khoan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tai_Khoan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" hidden>
+            @Html.LabelFor(model => model.Mat_Khau, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Mat_Khau, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Mat_Khau, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Trangthai, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Trangthai, new List<SelectListItem>()
+           {
+               new SelectListItem(){Selected = true, Text ="Hoạt động", Value = "0"},
+               new SelectListItem(){Selected = false, Text ="Đã xoá", Value = "1"},
+           }, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Trangthai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <br />
+        <div class="field grouped" style="margin:auto;">
+            <div class="control">
+                <button type="submit" class="button green">
+                    Lưu
+                </button>
+            </div>
+            <div class="control">
+                <button type="reset" class="button red">
+                    <a href="@Url.Action("Index","Khachhang")">Quay lại</a>
+                </button>
+            </div>
+        </div>
+    }
+</div>

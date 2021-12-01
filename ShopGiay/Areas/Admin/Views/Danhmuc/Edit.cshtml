@@ -4,53 +4,86 @@
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
 }
+<style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
 
-<h2>Edit</h2>
+    input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <header class="card-header">
-        <p class="card-header-title">
-            <span class="icon"><i class="mdi mdi-ballot"></i></span>
-            Sửa Danh mục
-        </p>
-    </header>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.ID_Danhmuc)
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.ID_Nhom_Danh_Muc, "ID_Nhom_Danh_Muc", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("ID_Nhom_Danh_Muc", (IEnumerable<SelectListItem>)ViewBag.id_ndm, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.ID_Nhom_Danh_Muc, "", new { @class = "text-danger" })
+    div {
+        border-radius: 5px;
+        padding: 20px;
+    }
+</style>
+<div style="width:50%; margin:auto;">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal" style="margin:auto;">
+            <header class="card-header">
+                <p class="card-header-title" style="text-align:center">
+                    <span class="icon"><i class="mdi mdi-ballot"></i></span>
+                    Sửa Danh mục
+                </p>
+            </header>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div>
+                <form action="#" style="width:50%;">
+                    <label for="fname">ID Danh mục</label>
+                    <input type="text" id="fname" name="ID_Danhmuc" placeholder="ID Danh mục ..." required value="@Model.ID_Danhmuc" readonly>
+                    <label for="Danhmuc">Nhóm danh mục</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("ID_Nhom_Danh_Muc", (IEnumerable<SelectListItem>)ViewBag.id_ndm, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ID_Nhom_Danh_Muc, "", new { @class = "text-danger" })
+                    </div>
+                    <label for="lname">Tên Danh mục</label>
+                    <input type="text" id="lname" name="Ten_Danhmuc" placeholder="Tên Danh mục.." required value="@Model.Ten_Danhmuc">
+                    <label for="lname">Trạng thái</label>
+                    <select id="country" name="Trangthai">
+                        <option value="0">Tồn tại</option>
+                        <option value="1">Đã xóa</option>
+                    </select>
+                    <br />
+                    <div class="field grouped">
+                        <div class="control">
+                            <button type="submit" class="button green">
+                                Sửa
+                            </button>
+                        </div>
+                        <div class="control">
+                            <button type="reset" class="button red">
+                                <a href="@Url.Action("Index","Danhmuc")">Quay lại</a>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Ten_Danhmuc, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Ten_Danhmuc, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Ten_Danhmuc, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <br />
-    <div class="field grouped">
-        <div class="control">
-            <button type="submit" class="button green">
-                Lưu
-            </button>
-        </div>
-        <div class="control">
-            <button type="reset" class="button red">
-                <a href="@Url.Action("Index","Nhomdanhmuc")">Quay lại</a>
-            </button>
-        </div>
-    </div>
+    }
 </div>
-}
+
+
 

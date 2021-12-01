@@ -253,7 +253,7 @@
     <Content Include="Asset\images\brand5.png" />
     <Content Include="Asset\images\cover-img-1.jpg" />
     <Content Include="Asset\images\Daygiay1.jpg" />
-    <Content Include="Asset\images\dep1.jpg" />
+    <Content Include="Asset\images\delete .png" />
     <Content Include="Asset\images\dep2.jpg" />
     <Content Include="Asset\images\dep3.jpg" />
     <Content Include="Asset\images\dep4.jpg" />
@@ -340,6 +340,9 @@
     <Content Include="Asset\images\DMLB19.jpg" />
     <Content Include="Asset\images\DMLB2.jpg" />
     <Content Include="Asset\images\DMLB20.jpg" />
+    <Content Include="Asset\images\DMLB3.jpg" />
+    <Content Include="Asset\images\DMLB3_1.jpg" />
+    <Content Include="Asset\images\DMLB3_2.jpg" />
     <Content Include="Asset\images\DMLB4.jpg" />
     <Content Include="Asset\images\DMLB4_2.jpg" />
     <Content Include="Asset\images\DMLB5.jpg" />
@@ -381,12 +384,16 @@
     <Content Include="Asset\images\DN8.jpg" />
     <Content Include="Asset\images\DN8_1.png" />
     <Content Include="Asset\images\DN9.jpg" />
+    <Content Include="Asset\images\DN_15.png" />
+    <Content Include="Asset\images\DN_15_1.png" />
+    <Content Include="Asset\images\DN_15_2.png" />
     <Content Include="Asset\images\DSLIDE_5.jpg" />
     <Content Include="Asset\images\dungcu1.jpg" />
     <Content Include="Asset\images\dungcu2.jpg" />
     <Content Include="Asset\images\dungcu3.jpg" />
     <Content Include="Asset\images\dungcu4.jpg" />
     <Content Include="Asset\images\dungcu5.jpg" />
+    <Content Include="Asset\images\edit .png" />
     <Content Include="Asset\images\Giay.jpeg" />
     <Content Include="Asset\images\giay3.jpg" />
     <Content Include="Asset\images\giay4.jpg" />
@@ -444,6 +451,8 @@
     <Content Include="Asset\images\GiayA26.jpg" />
     <Content Include="Asset\images\GiayA26_1.jpg" />
     <Content Include="Asset\images\GiayA26_2.jpg" />
+    <Content Include="Asset\images\GiayA27.jpg" />
+    <Content Include="Asset\images\GiayA27_1.jpg" />
     <Content Include="Asset\images\GiayA2_1.jpg" />
     <Content Include="Asset\images\GiayA2_2.jpg" />
     <Content Include="Asset\images\GiayA3.jpg" />
@@ -469,6 +478,7 @@
     <Content Include="Asset\images\GIAYSLIDE.jpg" />
     <Content Include="Asset\images\GMLB1.png" />
     <Content Include="Asset\images\GMLB1_1.jpeg" />
+    <Content Include="Asset\images\GMLB1_2.jpeg" />
     <Content Include="Asset\images\GN1.jpg" />
     <Content Include="Asset\images\GN10.jpeg" />
     <Content Include="Asset\images\GN10_1.jpeg" />
@@ -513,6 +523,10 @@
     <Content Include="Asset\images\GN9_1.jpg" />
     <Content Include="Asset\images\GN9_2.jpg" />
     <Content Include="Asset\images\GN9_3.jpg" />
+    <Content Include="Asset\images\GPM1.jpg" />
+    <Content Include="Asset\images\GPM1_1.jpg" />
+    <Content Include="Asset\images\GPM1_2.jpg" />
+    <Content Include="Asset\images\GPM2.jpg" />
     <Content Include="Asset\images\Hop1.jpg" />
     <Content Include="Asset\images\Hopvesinh1.jpg" />
     <Content Include="Asset\images\Hopvesinh2.jpg" />
@@ -538,6 +552,7 @@
     <Content Include="Asset\images\item-9.jpg" />
     <Content Include="Asset\images\loader.gif" />
     <Content Include="Asset\images\loc.png" />
+    <Content Include="Asset\images\loupe.png" />
     <Content Include="Asset\images\men.jpg" />
     <Content Include="Asset\images\MLB1_3.jpeg" />
     <Content Include="Asset\images\person1.jpg" />
@@ -1644,13 +1659,6 @@
     <Content Include="Areas\Admin\Views\AdminSanpham\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Donhang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Donhang\Details.cshtml" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\Donhang\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Danhmuc\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Danhmuc\Create.cshtml" />
@@ -1659,6 +1667,15 @@
     <Content Include="Areas\Admin\Views\Danhmuc\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Khachhang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Khachhang\Edit.cshtml" />
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\Khachhang\EditTrangThai.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSanpham\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1694,6 +1711,7 @@
     <Content Include="Views\Giohang\Thongtindonhang.cshtml" />
     <Content Include="Views\TTN_Shop\Lichsumh.cshtml" />
     <Content Include="Views\TTN_Shop\Detaildh.cshtml" />
+    <Content Include="Views\TTN_Shop\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,7 +4,37 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_MainLayout.cshtml";
 }
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 90%;
+        margin: auto;
+    }
 
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        #customers tr:nth-child(even) {
+            background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #2a9fd6;
+            color: white;
+            text-align: center;
+        }
+</style>
 <section class="is-title-bar">
     <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
         <ul>
@@ -18,77 +48,42 @@
         <h1 class="title">
             Người dùng
         </h1>
-        <button class="button light"><a href="@Url.Action("Create","Khachhang")">Thêm mới</a></button>
     </div>
 </section>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Ten_Nguoidung)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ngay_sinh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dia_chi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.So_DT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tai_Khoan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mat_Khau)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Trangthai)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Vai_tro.Ten_vai_tro)
-        </th>
-        <th></th>
-    </tr>
+<table id="customers">
 
+    <tr>
+        <th>ID</th>
+        <th>Tên người dùng</th>
+        <th>Ngày sinh</th>
+        <th>Địa chỉ</th>
+        <th>Email</th>
+        <th>Sđt</th>
+        <th>Tài Khoản</th>
+        <th>Mật khẩu</th>
+        <th>Trạng thái</th>
+        <th>Vai trò</th>
+        <th>Thao tác</th>
+    </tr>
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ten_Nguoidung)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ngay_sinh)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dia_chi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.So_DT)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tai_Khoan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mat_Khau)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Trangthai)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Vai_tro.Ten_vai_tro)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID_Nguoidung }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID_Nguoidung }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID_Nguoidung })
-            </td>
-        </tr>
+<tr>
+    <td>@item.ID_Nguoidung</td>
+    <td>@item.Ten_Nguoidung</td>
+    <td>@item.Ngay_sinh</td>
+    <td>@item.Dia_chi</td>
+    <td>@item.Email</td>
+    <td>@item.So_DT</td>
+    <td>@item.Tai_Khoan</td>
+    <td>@item.Mat_Khau</td>
+    <td>@item.Trangthai</td>
+    <td>@item.Vai_tro.Ten_vai_tro</td>
+    <td>
+        <a href="@Url.Action("EditTrangThai","Khachhang",new { id =item.ID_Nguoidung})"><img src="~/Asset/images/edit .png" /></a>
+        
+    </td>
+</tr>
+
     }
 
 </table>

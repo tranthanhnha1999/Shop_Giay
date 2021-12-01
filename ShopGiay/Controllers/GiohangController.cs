@@ -17,7 +17,7 @@ namespace ShopGiay.Controllers
         {
             
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
-            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
             ViewBag.hinhanh = db.Hinh_anh.ToList();
             List<Giohang> list = (List<Giohang>)Session["cartSession"];
             return View(list);
@@ -25,7 +25,7 @@ namespace ShopGiay.Controllers
         public ActionResult themgiohang(int id)
         {
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
-            ViewBag.danhmuc = db.Danh_muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
             ViewBag.hinhanh = db.Hinh_anh.ToList();
             var gh = Session["cartSession"];
             List<Giohang> list = new List<Giohang>();
