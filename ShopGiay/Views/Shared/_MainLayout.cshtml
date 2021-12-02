@@ -46,7 +46,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-7 col-md-9">
-                            <div id="colorlib-logo"><a href="index.html">TTN_Shop</a></div>
+                            <div id="colorlib-logo"><a href="@Url.Action("Index","TTN_Shop")"><img src="~/Asset/images/logo4.png" /></a></div>
                         </div>
                         <div class="col-sm-5 col-md-3">
                             <form action="@Url.Action("Search","TTN_Shop")" class="search-wrap" method="post">
@@ -86,8 +86,7 @@
 
                                     </li>
                                 }
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="@Url.Action("New","TTN_Shop")">Giới thiệu</a></li>
                                 @{
                                     if (Session["Nguoidung"] != null)
                                     {
@@ -139,7 +138,23 @@
             <div class="container">
                 <div class="row row-pb-md">
                     <div class="col footer-col colorlib-widget">
-                        <h4>Thông tin liên hệ</h4>
+                        <h4>Intro</h4>
+                        <div>
+                            <span> TTN_SHOP Chuyên cung cấp các loại sản phẩm Giày, Dép, Hàng chính hãng giá rẻ, Real 100%</span>
+                        </div>
+                        <div>
+                            <span>➡️ Chuyên Order và Hàng có Sẵn.</span>
+                        </div>
+                        <div>
+                            <span>♦️THANK YOU FOR SHOPPING WITH US !!</span>
+                        </div>
+                        <div>
+                            <span>===========❤️❤️=========</span>
+                        </div>
+
+                    </div>
+                    <div class="col footer-col colorlib-widget">
+                        <h4>Info</h4>
                         <div>
                             <i class="fa fa-envelope icon">  EMAIL :</i>
                             <p> ttnshop@gmail.com</p>
@@ -154,14 +169,30 @@
                             <p> 0923861311</p>
 
                         </div>
-                        <p>
-                            <ul class="colorlib-social-icons">
-                                <li><a href="#"><i class="icon-twitter"></i></a></li>
-                                <li><a href="#"><i class="icon-facebook"></i></a></li>
-                                <li><a href="#"><i class="icon-linkedin"></i></a></li>
-                                <li><a href="#"><i class="icon-dribbble"></i></a></li>
-                            </ul>
-                        </p>
+
+                    </div>
+                    <div class="col footer-col colorlib-widget">
+                        <h4>Follow</h4>
+                        <div>
+                            <i class="icon-facebook">  Face :</i>
+                            <p style="color:blue">ttn_shop</p>
+                        </div>
+                        <div>
+                            <i class="icon-twitter">  Twitter:</i>
+                            <p style="color:dodgerblue">sho_ttn_wt</p>
+
+                        </div>
+                        <div>
+                            <i class="icon-youtube">  Youtobe:</i>
+                            <p style="color:darkred">sho_ttn_ytb.com</p>
+
+                        </div>
+
+                    </div>
+                    <div class="col footer-col colorlib-widget">
+                        <h4>LOGO</h4>
+                        <a href="@Url.Action("Index","TTN_Shop")"><img src="~/Asset/images/Logo3.png"/></a>
+
                     </div>
                 </div>
                    

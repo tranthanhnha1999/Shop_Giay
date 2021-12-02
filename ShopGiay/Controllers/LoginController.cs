@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using ShopGiay.Models;
@@ -102,5 +104,52 @@ namespace ShopGiay.Controllers
             }
             
         }
+        public ActionResult ForgotPass() {
+            ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ForgotPass(string email)
+        {
+            ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
+            var kq = db.Nguoi_dung.Where(p => p.Email.Equals(email)).FirstOrDefault();
+            string message = "";
+            if (kq != null)
+            {
+                string pass = Encode.EncodeMd5(kq.Mat_Khau);
+                message += "<br/> Mật khẩu: " + pass;
+                SendMail(email, "Đơn hàng vừa đặt từ www.ttn_shop.com", message);
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+                ViewBag.loi = "Email này chưa có đăng ký !!";
+                return View();
+
+            }
+        }
+        public void SendMail(string address, string subject, string message)
+        {
+            string email = "nhacuteeee@gmail.com";
+            string password = "nha151199";
+
+            var loginInfo = new NetworkCredential(email, password);
+            var msg = new MailMessage();
+            var smtpclient = new SmtpClient("smtp.gmail.com", 587);
+
+            msg.From = new MailAddress(email);
+            msg.To.Add(new MailAddress(address));
+            msg.Subject = subject;
+            msg.Body = message;
+            msg.IsBodyHtml = true;
+
+            smtpclient.EnableSsl = true;
+            smtpclient.UseDefaultCredentials = false;
+            smtpclient.Credentials = loginInfo;
+            smtpclient.Send(msg);
+        }
+
     }
 }

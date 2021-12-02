@@ -552,6 +552,11 @@
     <Content Include="Asset\images\item-9.jpg" />
     <Content Include="Asset\images\loader.gif" />
     <Content Include="Asset\images\loc.png" />
+    <Content Include="Asset\images\logo.png" />
+    <Content Include="Asset\images\logo1.png" />
+    <Content Include="Asset\images\logo2.png" />
+    <Content Include="Asset\images\Logo3.png" />
+    <Content Include="Asset\images\Logo4.png" />
     <Content Include="Asset\images\loupe.png" />
     <Content Include="Asset\images\men.jpg" />
     <Content Include="Asset\images\MLB1_3.jpeg" />
@@ -1712,6 +1717,8 @@
     <Content Include="Views\TTN_Shop\Lichsumh.cshtml" />
     <Content Include="Views\TTN_Shop\Detaildh.cshtml" />
     <Content Include="Views\TTN_Shop\Search.cshtml" />
+    <Content Include="Views\Login\ForgotPass.cshtml" />
+    <Content Include="Views\TTN_Shop\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

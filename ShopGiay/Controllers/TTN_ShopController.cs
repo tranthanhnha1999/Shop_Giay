@@ -13,7 +13,7 @@ namespace ShopGiay.Controllers
         public ShopBanGiayEntities db = new ShopBanGiayEntities();
         public IEnumerable<San_pham> AllListPaging(int page, int pageSize)
         {
-            return db.San_pham.OrderByDescending(x => x.Ngaycapnhat).Where(x=>x.Trangthai != 1).ToPagedList(page, pageSize);
+            return db.San_pham.OrderByDescending(x => x.Ngaycapnhat).Where(x => x.Trangthai != 1).ToPagedList(page, pageSize);
         }
         public IEnumerable<San_pham> AllListPagingByDanhmuc(int page, int pageSize, string iddm)
         {
@@ -25,7 +25,7 @@ namespace ShopGiay.Controllers
             var model = (from s in db.San_pham
                          join d in db.Danh_muc on s.ID_Danh_Muc equals d.ID_Danhmuc
                          join n in db.Nhom_Danh_Muc on d.ID_Nhom_Danh_Muc equals idndm
-                         select s).Distinct().OrderByDescending(x => x.Ngaycapnhat).Where(p=>p.Trangthai != 1).ToPagedList(page, pageSize);
+                         select s).Distinct().OrderByDescending(x => x.Ngaycapnhat).Where(p => p.Trangthai != 1).ToPagedList(page, pageSize);
 
             return model;
         }
@@ -33,34 +33,34 @@ namespace ShopGiay.Controllers
         public ActionResult Index()
         {
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
-            ViewBag.danhmuc = db.Danh_muc.Where(p=>p.Trangthai!=1).ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
             ViewBag.slide = db.Slides.ToList();
             ViewBag.hinhanh = db.Hinh_anh.ToList();
             var model = (from S in db.San_pham orderby S.Ngaycapnhat descending where S.Trangthai != 1 select S).Take(12);
-            
+
             return View(model);
         }
         public ActionResult Product(string idndm, string iddm, int page = 1, int pageSize = 16)
         {
-            
+
             ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
             ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
             ViewBag.hinhanh = db.Hinh_anh.ToList();
             if (iddm != null)
             {
-                 var model = AllListPagingByDanhmuc(page, pageSize, iddm);
+                var model = AllListPagingByDanhmuc(page, pageSize, iddm);
                 ViewBag.id = iddm;
                 return View(model);
             }
             else if (idndm != null)
             {
-                 var model = AllListPagingByNhomdanhmuc(page, pageSize, idndm);
+                var model = AllListPagingByNhomdanhmuc(page, pageSize, idndm);
                 ViewBag.idndm = idndm;
                 return View(model);
             }
             else
             {
-                 var model = AllListPaging(page, pageSize);
+                var model = AllListPaging(page, pageSize);
                 ViewBag.idndm = null;
                 return View(model);
             }
@@ -109,5 +109,11 @@ namespace ShopGiay.Controllers
             };
             return View("Search");
         }
+        public ActionResult New() {
+            ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
+            ViewBag.hinhanh = db.Hinh_anh.ToList();
+            return View();
+        } 
     }
 }
