@@ -1672,6 +1672,8 @@
     <Content Include="Areas\Admin\Views\Danhmuc\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Khachhang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Khachhang\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Khachhang\EditTrangThai.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSanpham\Delete.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -1679,8 +1681,6 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\Khachhang\EditTrangThai.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminSanpham\Delete.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1719,6 +1719,7 @@
     <Content Include="Views\TTN_Shop\Search.cshtml" />
     <Content Include="Views\Login\ForgotPass.cshtml" />
     <Content Include="Views\TTN_Shop\New.cshtml" />
+    <Content Include="Views\Login\ChangePass.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

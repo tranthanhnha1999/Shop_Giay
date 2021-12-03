@@ -90,6 +90,7 @@
           <Property Name="Tai_Khoan" Type="nvarchar" MaxLength="150" />
           <Property Name="Mat_Khau" Type="nvarchar" MaxLength="150" />
           <Property Name="Trangthai" Type="int" />
+          <Property Name="Code" Type="int" />
         </EntityType>
         <EntityType Name="Nhom_Danh_Muc">
           <Key>
@@ -469,6 +470,7 @@
           <Property Name="Tai_Khoan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Mat_Khau" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Trangthai" Type="Int32" />
+          <Property Name="Code" Type="Int32" />
           <NavigationProperty Name="Don_hang" Relationship="Self.FK_Don_hang_Nguoi_dung" FromRole="Nguoi_dung" ToRole="Don_hang" />
           <NavigationProperty Name="Vai_tro" Relationship="Self.FK_Nguoi_dung_Vai_tro" FromRole="Nguoi_dung" ToRole="Vai_tro" />
           <NavigationProperty Name="Thanh_toan" Relationship="Self.FK_Thanh_toan_Nguoi_dung" FromRole="Nguoi_dung" ToRole="Thanh_toan" />
@@ -855,6 +857,7 @@
                 <ScalarProperty Name="Tai_Khoan" ColumnName="Tai_Khoan" />
                 <ScalarProperty Name="Mat_Khau" ColumnName="Mat_Khau" />
                 <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

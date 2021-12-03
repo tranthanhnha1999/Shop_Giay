@@ -84,18 +84,25 @@ namespace ShopGiay.Controllers
             var ketqua = db.Nguoi_dung.Where(p => p.Tai_Khoan.Equals(username) && p.Mat_Khau.Equals(pass)).FirstOrDefault();
             if(ketqua != null)
             {
-                if(ketqua.ID_vaitro == 1) { 
-                Session["Nguoidung"] = ketqua.ID_Nguoidung;
-                Session["Tennguoidung"] = ketqua.Ten_Nguoidung;
-                Session["Emailnguoidung"] = ketqua.Email;
-                Session["Mota"] = ketqua.Dia_chi;
-                Session["Sdt"] = ketqua.So_DT;
-                return RedirectToAction("Index", "TTN_Shop");
+                if(ketqua.Trangthai != 1) { 
+                    if(ketqua.ID_vaitro == 1) { 
+                    Session["Nguoidung"] = ketqua.ID_Nguoidung;
+                    Session["Tennguoidung"] = ketqua.Ten_Nguoidung;
+                    Session["Emailnguoidung"] = ketqua.Email;
+                    Session["Mota"] = ketqua.Dia_chi;
+                    Session["Sdt"] = ketqua.So_DT;
+                    return RedirectToAction("Index", "TTN_Shop");
+                    }
+                    else
+                    {
+                        Session["Admin"] = ketqua.ID_Nguoidung;
+                        return Redirect("https://localhost:44316/Admin/AdminHome");
+                    }
                 }
                 else
                 {
-                    Session["Admin"] = ketqua.ID_Nguoidung;
-                    return Redirect("https://localhost:44316/Admin/AdminHome");
+                    ViewBag.loitaikhoan = "Tài khoản này đã bị khóa !!";
+                    return View();
                 }
             }
             else
@@ -118,14 +125,45 @@ namespace ShopGiay.Controllers
             string message = "";
             if (kq != null)
             {
-                string pass = Encode.EncodeMd5(kq.Mat_Khau);
-                message += "<br/> Mật khẩu: " + pass;
+                int r = new Random().Next(1000, 9999);
+
+                kq.Code = r;
+                db.SaveChanges();
+                message += "<br/> Mã code:"+kq.Code ;
                 SendMail(email, "Đơn hàng vừa đặt từ www.ttn_shop.com", message);
-                return RedirectToAction("Login", "Login");
+                return RedirectToAction("ChangePass", "Login",new {id =kq.ID_Nguoidung });
             }
             else
             {
                 ViewBag.loi = "Email này chưa có đăng ký !!";
+                return View();
+
+            }
+        }
+        public ActionResult ChangePass(int id)
+        {
+            ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
+            ViewBag.Email = db.Nguoi_dung.Find(id).Email;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ChangePass(string email,int Code,string password)
+        {
+            ViewBag.nhomdanhmuc = db.Nhom_Danh_Muc.ToList();
+            ViewBag.danhmuc = db.Danh_muc.Where(p => p.Trangthai != 1).ToList();
+            var kq = db.Nguoi_dung.Where(p => p.Email.Equals(email)).FirstOrDefault();
+            if (kq.Code == Code)
+            {
+                kq.Code = null;
+                kq.Mat_Khau = Encode.EncodeMd5(password);
+                db.SaveChanges();
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+                ViewBag.Email = email;
+                ViewBag.loicode = "Mã code không đúng !!";
                 return View();
 
             }

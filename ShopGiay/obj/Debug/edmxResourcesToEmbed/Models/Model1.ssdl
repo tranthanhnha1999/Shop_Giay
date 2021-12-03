@@ -85,6 +85,7 @@
     <Property Name="Tai_Khoan" Type="nvarchar" MaxLength="150" />
     <Property Name="Mat_Khau" Type="nvarchar" MaxLength="150" />
     <Property Name="Trangthai" Type="int" />
+    <Property Name="Code" Type="int" />
   </EntityType>
   <EntityType Name="Nhom_Danh_Muc">
     <Key>

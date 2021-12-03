@@ -90,6 +90,7 @@
           <ScalarProperty Name="Tai_Khoan" ColumnName="Tai_Khoan" />
           <ScalarProperty Name="Mat_Khau" ColumnName="Mat_Khau" />
           <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
