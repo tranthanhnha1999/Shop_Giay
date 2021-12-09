@@ -57,9 +57,11 @@ namespace ShopGiay.Areas.Admin.Controllers
         public ActionResult ComfirmDelete(String id)
         {
             var item = db.Nhom_Danh_Muc.Find(id);
-            db.Nhom_Danh_Muc.Remove(item);
-            db.SaveChanges();
-            return RedirectToAction("Index", "Nhomdanhmuc");
+                db.Nhom_Danh_Muc.Remove(item);
+                db.SaveChanges();
+                return RedirectToAction("Index", "Nhomdanhmuc");
+
+            
         }
         public ActionResult Edit(String id)
         {

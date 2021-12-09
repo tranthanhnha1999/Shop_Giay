@@ -57,6 +57,14 @@
                 <input type="text" id="fname" name="ID_Nhom_Danh_muc" placeholder="ID Nhóm danh mục.." required value="@Model.ID_Nhom_Danh_muc" readonly>
                 <label for="lname">Tên Nhóm danh mục</label>
                 <input type="text" id="lname" name="Ten_Nhom_Danh_muc" placeholder="Tên nhóm danh mục.." required value="@Model.Ten_Nhom_Danh_muc" readonly>
+                <div>
+                    <p style="color:red">
+                        @if (ViewBag.loidanhmuc != null)
+                        {
+                            <span>@ViewBag.loidanhmuc</span>
+                        }
+                    </p>
+                </div>
                 <br />
                 <div class="field grouped">
                     <div class="control">
